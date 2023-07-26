@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateLeavesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('leaves', function (Blueprint $table) {
+            $table->id();
+            $table->integer('employee_id')->unsigned();
+            $table->string('days', 5)->nullable();
+            $table->date('from');
+            $table->date('to');
+            $table->string('reason', 500)->nullable();
+            $table->string('created_by', 100)->nullable();
+            $table->string('updated_by', 100)->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('leaves');
+    }
+}
