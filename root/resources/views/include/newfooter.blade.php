@@ -29,23 +29,26 @@ $system = SystemLogo::first();
 </div>
 <br>
 <div class="container">
-<div class="row gx-0 justify-content-between" style="padding:10px;">
+<div class="row gx-0 justify-content-between" style="padding: 10px; ">
     <div class="col-2">
-        <h5 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Contact #</h5>
+        <h6 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Contact #</h6>
         <p style="text-align:center;color:rgb(63, 63, 63);font-weight:500;">{{ $settings[0]->phone }}</p>
     </div><p style="font-weight:700;">|</p>
     <div class="col-2">
-        <h5 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Address:</h5>
+        <h6 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Address:</h6>
         <p style="text-align:center;color:rgb(63, 63, 63);font-weight:500;">{{ $settings[0]->address }}</p>
     </div><p style="font-weight:700;">|</p>
     <div class="col-2">
-        <h5 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Email:</h5>
+        <h6 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Email:</h6>
         <p style="text-align:center;color:rgb(63, 63, 63);font-weight:500;">{{ $settings[0]->email }}</p>
     </div><p style="font-weight:700;">|</p>
     <div class="col-2">
-        <h5 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Website:</h5>
+        <h6 class="anton" style="text-align:center;font-weight:100;color:rgb(0, 0, 0)">Website:</h6>
         <p style="text-align:center;color:rgb(63, 63, 63);font-weight:500;">{{ $settings[0]->website }}</p>
-    </div><p style="font-weight:700;"></p>
+    </div><p style="font-weight:700;">|</p>
+    <div class="col-2 ">
+            <img src="{{ asset('/root/upload/logo') }}/{{ $system->image }}" style="height: 50px; width: 100px;">
+    </div>
 </div>
 </div>
 <br>

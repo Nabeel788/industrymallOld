@@ -3,6 +3,8 @@ use App\Models\Settings;
 $settings = Settings::where('id', '=', '1')->get();
 use App\Models\SystemLogo;
 $system = SystemLogo::first();
+
+
 @endphp
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Anton">
 <style>
@@ -14,12 +16,13 @@ $system = SystemLogo::first();
         font-family: Anton;
     }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {{-- <div class="row" style="border-bottom: 2px solid black;margin-top:-20px;"> --}}
 <div class="row" style="margin-top:-20px;">
     <div class="col-7 ">
         <div style="width: 140px;">
-            <img src="{{ asset('/root/upload/logo') }}/{{ $system->image }}" style="height: 100px; width: 200px;">
+            <img src="{{ asset('/root/upload/users') }}/{{  $order->order_details[0]->vendor->image}}" style="height: 100px; width: 200px;">
+            {{--<img src="{{ asset('/root/upload/logo') }}/{{ $system->image }}" style="height: 100px; width: 200px;">--}}
         </div>
     </div>
     <div class="col-5 " style="margin-left:0px;margin-top:30px;font-size:20px;">

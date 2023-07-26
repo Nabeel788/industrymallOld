@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ORDER RECEIPT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body {
             margin-top: 20px;
@@ -98,18 +98,22 @@ thead tr:nth-child(even) td{
                                         <div class="col-4" style="color:rgb(95, 95, 95);">
                                             <div style="padding:5px;">
                                                     <div style="padding:5px;border: 2px solid rgb(202, 202, 202)">
-                                                        <p><b class="anton" style="font-weight: 100">INVOICE TO:&emsp;</b>{{  $order->order_details[0]->vendor->name }}</p>
-                                                        {{-- <p><b class="anton" style="font-weight: 100">Attend.&emsp;</b>Accounts Payable Department</p> --}}
-                                                        <div class="line"></div>
+                                                        {{--<p><b class="anton" style="font-weight: 100">INVOICE TO:&emsp;</b>{{  $order->order_details[0]->vendor->name }}</p>--}}
+                                                        <p><b class="anton" style="font-weight: 100">INVOICE TO:&emsp;</b>{{  $order->order_details[0]->vendor->company }}</p>
+                                                        <p><b class="anton" style="font-weight: 100">Attend.&emsp;</b>{{  $order->order_details[0]->vendor->name }}</p> 
+                                                        <hr class="line"></hr>
+                                                    
                                                         <div class="row" style="margin-top:15px;">
                                                             <div class="col-4" style="font-size:11px;">
                                                                 {{  $order->order_details[0]->vendor->addres }}
                                                             </div>
-                                                            <div class="col-8">
+                                                            <div class="col-8" style="padding:1px;" >
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-phone" style="padding:2px;font-size:15px!important;"> </i> {{  $order->order_details[0]->vendor->phone }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-mobile" style="padding:2px;font-size:20px!important;"> </i> {{  $order->order_details[0]->vendor->phone }}</p>
-                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-envelope" style="padding:2px;font-size:12px!important;"> </i> {{  $order->order_details[0]->vendor->email }}</p>
-                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-globe" style="padding:2px;"> </i> {{  $order->city }}</p>
+                                                                <p style="font-weight:500;color:black;font-size:12px;"><i class="fa fa-envelope" style="padding:2px;font-size:12px!important;"> </i> {{  $order->order_details[0]->vendor->email }}</p>
+                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-globe" style="padding:2px;"> </i>{{-- {{  $order->order_details[0]->vendor->site }}--}} www.industrymall.net</p>
+                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-thumb-tack" style="padding:2px;"> </i> {{  $order->city }}</p>
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -118,9 +122,10 @@ thead tr:nth-child(even) td{
                                         <div class="col-4" style="color:rgb(95, 95, 95);">
                                             <div style="padding:5px;">
                                                     <div style="padding:5px;border: 2px solid rgb(202, 202, 202)">
-                                                        <p><b class="anton" style="font-weight: 100">SHIP TO:&emsp;</b>{{  $order->order_details[0]->vendor->name }}</p>
-                                                        {{-- <p><b class="anton" style="font-weight: 100">Attend.&emsp;</b>Accounts Payable Department</p> --}}
-                                                        <div class="line"></div>
+                                                        {{--<p><b class="anton" style="font-weight: 100">SHIP TO:&emsp;</b>{{  $order->order_details[0]->vendor->name }}</p>--}}
+                                                        <p><b class="anton" style="font-weight: 100">SHIP TO:&emsp;</b>{{  $order->company }}</p>
+                                                        <p><b class="anton" style="font-weight: 100">Attend.&emsp;</b>{{ $order->first_name}}</p> 
+                                                        <hr class="line"></hr>
                                                         <div class="row" style="margin-top:15px;">
                                                             <div class="col-4" style="font-size:11px;">
                                                                 {{  $order->address_01 }}
@@ -129,7 +134,9 @@ thead tr:nth-child(even) td{
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-phone" style="padding:2px;font-size:15px!important;"> </i> {{  $order->phone1 }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-mobile" style="padding:2px;font-size:20px!important;"> </i> {{  $order->phone2 }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-envelope" style="padding:2px;font-size:12px!important;"> </i> {{  $order->email }}</p>
-                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-globe" style="padding:2px;"> </i> {{  $order->city }}</p>
+                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-thumb-tack" style="padding:2px;"> </i> {{  $order->city }}</p>
+                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa" style="padding:2px; color:white;"> </i></p>
+                                                            
                                                             </div>
                                                         </div>
                                                     </div>
@@ -146,7 +153,7 @@ thead tr:nth-child(even) td{
                                                    
                                                     <div class="col-sm-6"><p style="font-size:15px;"><b style="font-weight: 500;">Customer ID</b></p></div>:<div class="col-sm-5"><p>{{ $order->order_details[0]->customer_id }}</p></div>
                                                    
-                                                    <div class="col-sm-6"><p style="font-size:15px;"><b style="font-weight: 500;">Purchase Order#</b></p></div>:<div class="col-sm-5"><p>{{ $order->id }}</p></div>
+                                                    {{--<div class="col-sm-6"><p style="font-size:15px;"><b style="font-weight: 500;">Purchase Order#</b></p></div>:<div class="col-sm-5"><p>{{ $order->id }}</p></div>--}}
                                                    
                                                     <div class="col-sm-6"><p style="font-size:15px;"><b style="font-weight: 500;">NTN#</b></p></div>:<div class="col-sm-5"><p>{{  $order->order_details[0]->vendor->ntn }}</p></div>
                                                    
@@ -168,7 +175,7 @@ thead tr:nth-child(even) td{
                                             <td>Sr#</td>
                                             <td>Model No.</td>
                                             <td>Product Name:</td>
-                                            <td>HS Code</td>
+                                            {{--<td>HS Code</td>--}}
                                             <td>Qty</td>
                                             {{-- <td>Tax Rate</td> --}}
                                             <td>Tax Charges</td>
@@ -190,11 +197,11 @@ thead tr:nth-child(even) td{
                                         @endphp
                                         @foreach ($order->order_details as $key => $value)
                                             @if($color%2==0)
-                                        <tr style="background:#eeeeee">
+                                        <tr style="background:#E2DFDF">
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $value->products->model_no }}</td>
                                                 <td>{{ $value->product_name }}</td>
-                                                <td>{{ $value->products->sku }}</td>
+                                                {{--<td>{{ $value->products->sku }}</td>--}}
                                                 <td>{{ $value->quantity }}</td>
                                                 <td>{{ $settings->currency . '' . number_format($value->t_charges, 2)  }}</td>
                                                 <td>{{ $settings->currency . '' . number_format($value->imp_charges, 2)  }}</td>
@@ -212,7 +219,7 @@ thead tr:nth-child(even) td{
                                                 <td>{{ $key + 1 }}</td>
                                                 <td>{{ $value->products->model_no }}</td>
                                                 <td>{{ $value->product_name }}</td>
-                                                <td>{{ $value->products->sku }}</td>
+                                                {{--<td>{{ $value->products->sku }}</td>--}}
                                                 <td>{{ $value->quantity }}</td>
                                                 <td>{{ $settings->currency . '' . number_format($value->t_charges, 2)  }}</td>
                                                 <td>{{ $settings->currency . '' . number_format($value->imp_charges, 2)  }}</td>
