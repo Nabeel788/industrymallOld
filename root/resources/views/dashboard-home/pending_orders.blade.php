@@ -33,6 +33,7 @@
                                 @forelse ($PendingOrders as $key=>$value)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
+                                        <td>{{ $value-> }}</td>
                                         <td>{{ date('d/m/Y', strtotime($value->date)) }}</td>
                                         <td>{{ date('d/m/Y', strtotime($value->shipping)) }}</td>
                                         <td>
@@ -80,3 +81,5 @@
         });
     </script>
 @stop
+
+

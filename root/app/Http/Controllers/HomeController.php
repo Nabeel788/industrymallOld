@@ -97,7 +97,7 @@ class HomeController extends Controller
 
     public function TotalVendors()
     {
-        $Vendors = User::select('name', 'company', 'phone1', 'gender', 'email')->where('role', 'Vendor')->get();
+        $Vendors = User::select('id','name', 'company', 'phone1', 'email', 'address1', 'rol')->where('role', 'Vendor')->get();
         return view('dashboard-home.vendors_list', compact('Vendors'));
     }
 
@@ -168,21 +168,22 @@ class HomeController extends Controller
 
     public function OutOfStockProductsList()
     {
-        if (Auth::User()->role == 'Admin') {
-         $outOfStockItems = Stock::with('user:id,name')
-                ->with('product:id,name')
-                ->selectRaw("biller_id,pro_id,sum(qty_in) as qtyin, sum(qty_out) as qtyout")
-                ->groupBy('pro_id')
-                ->get();
-                // return $outOfStockItems;
-            return view('dashboard-home.out_of_stock_items', compact('outOfStockItems'));
-        } else {
-            $outOfStockItems = Stock::with('product:id,name')
-                ->selectRaw("biller_id,pro_id,sum(qty_in) as qtyin, sum(qty_out) as qtyout")
-                ->where('biller_id', Auth::User()->id)
-                ->groupBy('pro_id')
-                ->get();
-            return view('vendor-home.out_of_stock_items', compact('outOfStockItems'));
-        }
+        if (Auth::user()->role == 'Admin') {
+    $outOfStockItems = Stock::with('user:id,name')
+        ->with('product:id,name,model_no') // Add 'model_number' to fetch 'Model Number'
+        ->selectRaw("biller_id,pro_id,sum(qty_in) as qtyin, sum(qty_out) as qtyout")
+        ->groupBy('pro_id')
+        ->get();
+
+    return view('dashboard-home.out_of_stock_items', compact('outOfStockItems'));
+} else {
+    $outOfStockItems = Stock::with('product:id,name,model_no') // Add 'model_number' to fetch 'Model Number'
+        ->selectRaw("biller_id,pro_id,sum(qty_in) as qtyin, sum(qty_out) as qtyout")
+        ->where('biller_id', Auth::user()->id)
+        ->groupBy('pro_id')
+        ->get();
+
+    return view('vendor-home.out_of_stock_items', compact('outOfStockItems'));
+}
     }
 }

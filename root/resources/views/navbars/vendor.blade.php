@@ -1,9 +1,11 @@
 <!-- Sidebar Menu -->
+
+ {{-- (Note) asset change to url because localhost error  --}}
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-            <a href="{{ asset('/home') }}" class="nav-link">
+            <a href="{{ url('/home') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt" aria-hidden="true"></i>
                 <p>
                     Dashboard
@@ -20,31 +22,31 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/products/create') }}" class="nav-link">
+                    <a href="{{ url('/products/create') }}" class="nav-link">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>Add Product</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/products') }}" class="nav-link">
+                    <a href="{{ url('/products') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Products</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/product-contacts') }}" class="nav-link">
+                    <a href="{{ url('/product-contacts') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Customer Queries</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/vendor-banners') }}" class="nav-link">
+                    <a href="{{ url('/vendor-banners') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Profile Banner</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/vendor-album') }}" class="nav-link">
+                    <a href="{{ url('/vendor-album') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Album</p>
                     </a>
@@ -61,13 +63,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/purchase/create') }}" class="nav-link">
+                    <a href="{{ url('/purchase/create') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Purchase</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/purchase') }}" class="nav-link">
+                    <a href="{{ url('/purchase') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Purchase</p>
                     </a>
@@ -75,7 +77,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a href="{{ asset('/vendor-orders') }}" class="nav-link">
+            <a href="{{ url('/vendor-orders') }}" class="nav-link">
                 <i class="fas fa-bell nav-icon"></i>
                 <p>
                     Orders
