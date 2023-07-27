@@ -34,7 +34,7 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $value->product->name }}</td>
-                                            <td>{{ $value->product->model_no}} </td>
+                                            <td>{{ $value->product->model_no}} </td>    
                                             <td><button class="btn btn-info">info</button></td>
                                             <td><button class="btn btn-success">Upload</button></td>
                                             <td><button class="btn btn-primary">Download</button></td>
