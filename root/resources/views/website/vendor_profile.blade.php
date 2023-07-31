@@ -1232,7 +1232,13 @@ button {
                                                     @endif
                                                 </td>
                                                 <td>Member Since</td>
-                                                <td>Name Goes Here</td>
+                                                <td>
+                                                @if (isset($vendor->member_since))
+                                                    {{ $vendor->member_since}}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Location</td>
@@ -1244,9 +1250,15 @@ button {
                                                     @endif
                                                 </td>
                                                 <td>Certifications</td>
-                                                <td>Name Goes Here</td>
+                                                <td>
+                                                @if (isset($vendor->certifications))
+                                                    {{ $vendor->certifications }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
-                                            <tr>
+                                            <tr >
                                                 <td>Name or Business</td>
                                                 <td>
                                                     @if (isset($vendor->name))
@@ -1255,8 +1267,14 @@ button {
                                                     Name Goes Here
                                                     @endif
                                                 </td>
-                                                <td></td>
-                                                <td>Name Goes Here</td>
+                                                <td  >Accepted Payment Type</td>
+                                                <td >
+                                                @if (isset($vendor->accepted_payment_type))
+                                                    {{ $vendor->accepted_payment_type }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Total Emploees</td>
@@ -1267,8 +1285,14 @@ button {
                                                     Name Goes Here
                                                     @endif
                                                 </td>
-                                                <td></td>
-                                                <td>Name Goes Here</td>
+                                                <td  >Major Clients</td>
+                                                <td >
+                                                @if (isset($vendor->major_clients))
+                                                    {{ $vendor->major_clients }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Established In</td>
@@ -1279,8 +1303,14 @@ button {
                                                     Name Goes Here
                                                     @endif
                                                 </td>
-                                                <td></td>
-                                                <td>Name Goes Here</td>
+                                                <td  >Annual Export ($)</td>
+                                                <td >
+                                                @if (isset($vendor->annual_export))
+                                                    {{ $vendor->annual_export }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Deals In</td>
@@ -1291,8 +1321,14 @@ button {
                                                     Name Goes Here
                                                     @endif
                                                 </td>
-                                                <td></td>
-                                                <td>Name Goes Here</td>
+                                                <td  >Annual Import ($)</td>
+                                                <td >
+                                                @if (isset($vendor->annual_import))
+                                                    {{ $vendor->annual_import }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>Main Market</td>
@@ -1303,8 +1339,14 @@ button {
                                                     Name Goes Here
                                                     @endif
                                                 </td>
-                                                <td></td>
-                                                <td>Name Goes Here</td>
+                                                <td  >Annual Revenue ($)</td>
+                                                <td >
+                                                @if (isset($vendor->annual_revenue))
+                                                    {{ $vendor->annual_revenue }}
+                                                    @else
+                                                    Name Goes Here
+                                                    @endif
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

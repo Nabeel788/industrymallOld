@@ -21,11 +21,13 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
-                                    <th>Make</th>
-                                    <th>Product</th>
-                                    <th>Vendor</th>
-                                    <th>Model#</th>
-                                    <th>Company</th>
+                                    <th>Supplier Name</th>
+                                    <th>Product Name</th>
+                                    <th>Brand Name</th>
+                                    <th>Contact Number</th>
+                                    <th>Model Number</th>
+                                    <th>MOQ</th>
+                                    <th>Shipping</th>
                                     <th>Message</th>
                                 </tr>
                             </thead>
@@ -40,9 +42,12 @@
                                                 {{ $value->vendor->name }}
                                             @endif
                                         </td>
-                                        <td>{{ $value->model_no }}</td>
-                                        <td>{{ $value->company }}</td>
+                                        <td>{{ $value->ptcl }}</td>
+                                        <td> {{ $value->model_no }}</td>
+                                        <td> {{ $value->moq }} </td>
+                                        <td> {{ $value->address}}</td>
                                         <td>{{ $value->message }}</td>
+                                       
                                     </tr>
                                 @empty
                                     <td colspan="7" align="center" style="color: red;font-weight:bold;"><b>Record Not
@@ -52,11 +57,13 @@
                             <tfoot>
                                 <tr>
                                     <th>Sr.</th>
-                                    <th>Make</th>
-                                    <th>Product</th>
-                                    <th>Vendor</th>
-                                    <th>Model#</th>
-                                    <th>Company</th>
+                                    <th>Supplier Name</th>
+                                    <th>Product Name</th>
+                                    <th>Brand Name</th>
+                                    <th>Contact Number</th>
+                                    <th>Model Number</th>
+                                    <th>MOQ</th>
+                                    <th>Shipping</th>
                                     <th>Message</th>
                                 </tr>
                             </tfoot>

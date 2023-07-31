@@ -646,7 +646,7 @@
                 ]) !!}
                 <div class="content-panel">
                     <h2 class="title">User Profile<span class="pro-label label label-warning">PRO</span></h2>
-                    <form class="form-horizontal">
+                    <form class="form-horizontal"  enctype="multipart/form-data">
                         <fieldset class="fieldset">
                             <h3 class="fieldset-title">
                                 <!-- Update Logo -->
@@ -721,6 +721,38 @@
                                     <label for="certifications">Certifications</label>
                                     {!! Form::text('certifications', null, ['id' => 'certifications', 'class' => 'form-control']) !!}
                                 </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1">
+                                    <label for="certifications">website_link</label>
+                                    {!! Form::text('website_link', null, ['id' => 'website_link', 'class' => 'form-control']) !!}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1 ">
+                                    <label for="certifications">Accepted Payment Type</label>
+                                    {!! Form::text('accepted_payment_type', null, ['id' => 'accepted_payment_type', 'class' => 'form-control ']) !!}
+                                {{--<label><input type="checkbox" name="accepted_payment_type[]" value="VISA Card"> VISA Card</label>
+                                <label><input type="checkbox" name="accepted_payment_type[]" value="Cheque"> Cheque</label>
+                                <label><input type="checkbox" name="accepted_payment_type[]" value="Master"> Master</label>
+                                <label><input type="checkbox" name="accepted_payment_type[]" value="Cash On Delivery"> Cash On Delivery</label>
+                                <label><input type="checkbox" name="accepted_payment_type[]" value="Bank Transfer"> Bank Transfer</label>
+                                <label><input type="checkbox" name="accepted_payment_type[]" value="Bank Transfer"> Online Transfer</label>
+                                --}}
+                            </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1 ">
+                                    <label for="certifications">Major Clients</label>
+                                    {!! Form::text('major_clients', null, ['id' => 'major_clients', 'class' => 'form-control']) !!}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1 ">
+                                    <label for="certifications">Annual Export $</label>
+                                    {!! Form::number('annual_export', null, ['id' => 'annual_export', 'class' => 'form-control' , 'step'=>'0.01']) !!}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1 ">
+                                    <label for="certifications">Annual Import $</label>
+                                    {!! Form::number('annual_import', null, ['id' => 'annual_import', 'class' => 'form-control ' ,  'step'=>'0.01']) !!}
+                                </div>
+                                <div class="col-lg-4 col-md-4 col-sm-12 mt-1 ">
+                                    <label for="certifications">Annual Revenue $</label>
+                                    {!! Form::number('annual_revenue', null, ['id' => 'annual_revenue', 'class' => 'form-control' , 'step'=>'0.01']) !!}
+                                </div>
+                                
                                 <div class="col-lg-12 col-md-12 col-sm-12 mt-1">
                                     <label for="basic_information">Basic Information</label>
                                     {!! Form::textarea('basic_information', null, ['id' => 'basic_information', 'class' => 'form-control']) !!}

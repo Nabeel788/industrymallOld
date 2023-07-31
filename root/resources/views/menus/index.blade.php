@@ -32,6 +32,7 @@
                                     <th>Name</th>
                                     <th>Icon</th>
                                     <th>Actions</th>
+                                    {{-- <th>bf</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,12 +43,22 @@
                                         <td>{{ $sum }}</td>
                                         <td>{{ $donor->name }}</td>
                                         <td><i class="{{ $donor->icon }}"></i></td>
-                                        <td>
+                                        {{-- <td>
                                             <a href="{{ asset('menus/' . $donor->id . '/edit') }}"
                                                 class="btn btn-info btn-sm"><i class="fa fa-pencil"></i></a>
                                             <a onclick="return confirm('Are you sure you want to delete?')"
                                                 href="{{ asset('menus/' . $donor->id . '/destroy') }}" class="btn btn-danger btn-sm"><i
                                                     class="fa fa-trash"></i></a>
+                                        </td> --}}
+
+                                        {{-- new method  --}}
+                                        <td>
+                                            <a href="{{ route_url('menu.edit', ['id' => $donor->id]) }}" class="btn btn-info btn-sm">
+                                                <i class="fa fa-pencil"></i>
+                                            </a>
+                                            <a onclick="return confirm('Are you sure you want to delete?')" href="{{ route_url('menu.destroy', ['id' => $donor->id]) }}" class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
