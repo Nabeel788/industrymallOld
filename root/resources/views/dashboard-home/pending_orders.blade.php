@@ -33,7 +33,7 @@
                                 @forelse ($PendingOrders as $key=>$value)
                                     <tr>
                                         <td>{{ $key + 1 }}</td>
-                                        <td>{{ $value-> }}</td>
+                                        <td>{{ $value->id }}</td>
                                         <td>{{ date('d/m/Y', strtotime($value->date)) }}</td>
                                         <td>{{ date('d/m/Y', strtotime($value->shipping)) }}</td>
                                         <td>

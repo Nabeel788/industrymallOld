@@ -158,7 +158,7 @@ class HomeController extends Controller
             $ProductQueries = ProductContact::with('vendor:id,name')->orderBy('id', 'desc')->get();
             return view('dashboard-home.product_queries', compact('ProductQueries'));
         } else {
-            $ProductQueries = ProductContact::with('vendor:id,name')
+            $ProductQueries = ProductContact::with('vendor:id,name, email')
                 ->where('vendor_id', Auth::User()->id)
                 ->orderBy('id', 'desc')
                 ->get();
