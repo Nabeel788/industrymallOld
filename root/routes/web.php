@@ -326,6 +326,14 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
     Route::resource('/vendor-album', VendorAlbumController::class);
     Route::post('upload_vendor_album_image_ajax', [VendorAlbumController::class, 'UploadImageAJax']);
     Route::get('delete_vendor_album_image_ajax', [VendorAlbumController::class, 'DeleteImageAJax']);
+
+
+
+
+    // route checking 
+    Route::get('menus/{id}/edit', 'MenuController@edit')->name('menu.edit');
+    Route::get('menus/{id}/destroy', 'MenuController@destroy')->name('menu.destroy');
+
 });
 
 

@@ -258,9 +258,9 @@
                                     @endif
                                     @php $tab1++; @endphp
                                 @endforeach
-                               
+
                             </ul>
-                           
+
                         </div>
                     </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 appear-animate" style="margin-top:55px;padding-right:10px;padding-left:1px;text-align:right">
@@ -299,7 +299,7 @@
                                             <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                                                 @php $n=0; @endphp
                                                 @foreach ($products as $key => $value)
-                                                
+
                                                     @if ($subcategory->id == $value->subcategory_id )
                                                         {{-- <h3>{{ $value->id }}</h3> --}}
                                                         <div class="swiper-slide product-col">
@@ -576,9 +576,9 @@
                                                                                                         </label>
                                                                                                     @endif
                                                                                                 @endif
-                                                                                            @endforeach  
+                                                                                            @endforeach
                                                                                         @endif
-                                                                                        
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -600,7 +600,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -612,7 +612,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -626,14 +626,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -1003,7 +1003,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -1015,7 +1015,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -1029,14 +1029,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -1355,7 +1355,7 @@
                                                                                         @endphp
                                                                                     @endforeach
                                                                                 @endif
-                                                                                
+
                                                                                 @if(($stockIn-$stockOut)<=0)
                                                                                     <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
                                                                                 @else
@@ -1461,7 +1461,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -1473,7 +1473,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -1487,14 +1487,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -1863,7 +1863,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -1875,7 +1875,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -1889,14 +1889,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -2349,7 +2349,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -2361,7 +2361,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -2375,14 +2375,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -2751,7 +2751,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -2763,7 +2763,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -2777,14 +2777,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -3190,7 +3190,7 @@
                                                                                                 @endif
                                                                                             @endforeach
                                                                                         @endif
-                                                                                        
+
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
@@ -3212,7 +3212,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -3224,7 +3224,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -3238,14 +3238,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -3614,7 +3614,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php 
+                                                                                @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -3626,7 +3626,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -3640,14 +3640,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>

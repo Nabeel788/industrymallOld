@@ -21,46 +21,54 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>order#</th>
                                     <th>Order Date</th>
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
-                                    <th>Customer</th>
-                                    <th>Vendor</th>
+                                    <th>Customer Name</th>
                                     <th>Status</th>
+                                    <th>Details</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($PendingOrders as $key=>$value)
-                                    <tr>
-                                        <td>{{ $key + 1 }}</td>
-                                        <td>{{ $value-> }}</td>
-                                        <td>{{ date('d/m/Y', strtotime($value->date)) }}</td>
-                                        <td>{{ date('d/m/Y', strtotime($value->shipping)) }}</td>
-                                        <td>
-                                            @php $tQty = 0; @endphp
-                                            @foreach ($value->order_details as $value1)
-                                                @php $tQty += $value1->quantity; @endphp
-                                            @endforeach
-                                            {{ number_format($tQty, 2) }}
-                                        </td>
-                                        <td>{{ $value->customer->name }}</td>
-                                        <td>{{ $value->order_details[0]->vendor->name }}</td>
-                                        <td><span class="badge badge-success">{{ $value->status }}</span></td>
-                                    </tr>
+                                @forelse ($PendingOrders as $key => $value)
+                                    @isset($value->order_details[0])
+                                        <tr>
+                                            <td>{{ $key + 1 }}</td>
+                                            <td>{{ $value->id }}</td>
+                                            <td>{{ date('d/m/Y', strtotime($value->date)) }}</td>
+                                            <td>{{ date('d/m/Y', strtotime($value->shipping)) }}</td>
+                                            <td>
+                                                @php $tQty = 0; @endphp
+                                                @foreach ($value->order_details as $value1)
+                                                    @php $tQty += $value1->quantity; @endphp
+                                                @endforeach
+                                                {{ number_format($tQty, 2) }}
+                                            </td>
+                                            <td>{{ $value->customer->name ?? '' }}</td>
+                                            <td><span class="badge badge-success">{{ $value->status ?? '' }}</span></td>
+                                            <td>
+                                                <a href="{{ url('orders/'.$value->id) }}" class="btn btn-success btn-sm" target="_blank">Details</a>
+                                            </td>
+                                        </tr>
+                                    @endisset
                                 @empty
-                                    <td colspan="7" align="center" style="color: red;font-weight:bold;"><b>Record Not
-                                            Found</b></td>
+                                    <tr>
+                                        <td colspan="8" align="center" style="color: red;font-weight:bold;"><b>Record Not Found</b></td>
+                                    </tr>
                                 @endforelse
                             </tbody>
+                            
                             <tfoot>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>order#</th>
                                     <th>Order Date</th>
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
-                                    <th>Customer</th>
-                                    <th>Vendor</th>
+                                    <th>Customer Name</th>
                                     <th>Status</th>
+                                    <th>Details</th>
                                 </tr>
                             </tfoot>
                         </table>

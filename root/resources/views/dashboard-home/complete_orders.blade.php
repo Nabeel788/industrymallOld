@@ -25,8 +25,12 @@
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
                                     <th>Customer</th>
-                                    {{-- <th>Vendor</th> --}}
                                     <th>Status</th>
+                                    <th>View Invoice</th>
+                                    <th>Download Report</th>
+                                    <th>Update status</th>
+                                    <th>Download Report</th>
+                                    <th>Reviews</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,21 +49,38 @@
                                         <td>{{ $value->customer->name }}</td>
                                         {{-- <td>{{ $value->order_details[0]->vendor->name }}</td> --}}
                                         <td><span class="badge badge-success">{{ $value->status }}</span></td>
+                                        <td>
+                                            <button class="btn btn-success">Download Report</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-info">Edit</button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-info">Download</button>
+                                        </td>
+                                        <td>
+                                            <p>Reviews</p>
+                                        </td>
                                     </tr>
                                 @empty
-                                    <td colspan="7" align="center" style="color: red;font-weight:bold;"><b>Record Not
+                                    <td colspan="11" align="center" style="color: red;font-weight:bold;"><b>Record Not
                                             Found</b></td>
                                 @endforelse
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>Sr.</th>
+                                    <<th>Sr.</th>
                                     <th>Order Date</th>
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
                                     <th>Customer</th>
                                     {{-- <th>Vendor</th> --}}
                                     <th>Status</th>
+                                    <th>View Invoice</th>
+                                    <th>Download Report</th>
+                                    <th>Update status</th>
+                                    <th>Download Report</th>
+                                    <th>Reviews</th>
                                 </tr>
                             </tfoot>
                         </table>

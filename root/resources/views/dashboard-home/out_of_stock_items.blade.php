@@ -21,8 +21,11 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
-                                    <th>Product</th>
-                                    <th>Vendor</th>
+                                    <th>Product Name</th>
+                                    <th>Product Model</th>
+                                    <th>View Product</th>
+                                    <th>Add Purchase</th>
+                                    <th>Download Report</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -42,8 +45,11 @@
                             <tfoot>
                                 <tr>
                                     <th>Sr.</th>
-                                    <th>Product</th>
-                                    <th>Vendor</th>
+                                    <th>Product Name</th>
+                                    <th>Product Model</th>
+                                    <th>View Product</th>
+                                    <th>Add Purchase</th>
+                                    <th>Download Report</th>
                                 </tr>
                             </tfoot>
                         </table>
