@@ -1,36 +1,47 @@
 <!-- Sidebar Menu -->
 
 {{-- (Note) changed assest to url due to localhost issue  --}}
+<head>
+    <style>
+        
+        
+        #list-item-color.active{
+        color:#fff;
+        background-color: rgba(255, 255, 255, .2);
+    }
 
+    
 
+    </style>
+</head>
 <nav class="mt-2">
-    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+    <ul class="nav nav-pills nav-sidebar flex-column"  data-widget="treeview" role="menu" data-accordion="false">
 
-        <li class="nav-item">
-            <a href="{{ route('home') }}" class="nav-link">
+        <li class="nav-item ">
+            <a href="{{ route('home') }}" id="list-item-color"  class="nav-link menu-link  {{(request()->route()->getName() == 'home')? 'active': ''}}">
                 <i class="nav-icon fas fa-tachometer-alt" aria-hidden="true"></i>
                 <p>
                     Dashboard
                 </p>
             </a>
         </li>
-        <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+        <li class="nav-item has-treeview" >
+            <a href="#" class="nav-link" >
                 <i class="nav-icon fas fa-users"></i>
                 <p>
-                    Menu
+                    Brands & Location
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ url('brand') }}" class="nav-link">
+                    <a href="{{ url('brand') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'brand.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Brands</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url('/our-locations') }}" class="nav-link">
+                    <a href="{{ url('/our-locations') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'our-locations.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Locations</p>
                     </a>
@@ -47,19 +58,19 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ url ('/menus') }}" class="nav-link">
+                    <a href="{{ url ('/menus') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'menus.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Menus</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url ('/categories') }}" class="nav-link">
+                    <a href="{{ url ('/categories') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'categories.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Categories</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url ('/sub-category') }}" class="nav-link">
+                    <a href="{{ url ('/sub-category') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'sub-category.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Sub Categories</p>
                     </a>
@@ -76,20 +87,20 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ url ('/our-sizes') }}" class="nav-link">
+                    <a href="{{ url ('/our-sizes') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'our-sizes.index')? 'active': ''}}">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>All Sizes</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url ('/products/create') }}" class="nav-link">
+                    <a href="{{ url ('/products/create') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'products.create')? 'active': ''}}">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>Add Product</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ url ('/products') }}" class="nav-link">
+                    <a href="{{ url ('/products') }}" id="list-item-color" class="nav-link menu-link {{(request()->route()->getName() == 'products.index')? 'active': ''}}">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Products</p>
                     </a>
@@ -175,12 +186,12 @@
                 </p>
             </a>
             <ul class="nav nav-treeview">
-                <li class="nav-item">
+                {{--<li class="nav-item">
                     <a href="{{ url ('/partners') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Partners</p>
                     </a>
-                </li>
+                </li>--}}
                 <li class="nav-item">
                     <a href="{{ url ('/our-terms-conditions') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
@@ -300,7 +311,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{ url ('/orders') }}" class="nav-link">
+            <a href="{{ url ('/orders') }}"  class="nav-link menu-link  {{(request()->route()->getName() == 'orders.index')? 'active' : ''}}">
                 <i class="fas fa-bell nav-icon"></i>
                 <p>
                     Orders
@@ -342,7 +353,7 @@
             <a href="{{ url ('/home-settings') }}" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
                 <p>
-                    Home Settings
+                    HomePage Settings
                 </p>
             </a>
         </li>
@@ -848,3 +859,5 @@ Widgets
 
     </ul>
 </nav>
+
+

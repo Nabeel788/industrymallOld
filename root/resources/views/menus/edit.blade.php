@@ -79,7 +79,7 @@
                                 <div class="col-lg-6 col-md-6 col-sm-12">
                                     <div class="form-group">
                                         <label>Image For App (100 x 100)</label>
-                                        <input type="file" name="imageforapp" id="imageforapp" class="form-control" required>
+                                        <input type="file" name="imageforapp" id="imageforapp" class="form-control" >
                                         @error('imageforapp')
                                             <span class="invalid-feedback1 font-weight-bold">{{ $message }}</span>
                                         @enderror
@@ -87,6 +87,38 @@
                                 </div>
                             </div>
                         </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12">
+                    <div class="card card-success">
+                        <div class="card-header">
+                            <h3 class="card-title">Menu images</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>image</label>
+                                        <img src="{{ URL::asset($edit->image) }}"
+                                            id="show_brand_logo" class="img-fluid" alt="menu image">
+                                            
+                                    </div>
+                                    
+                                </div>
+
+                                <div class="col-lg-6 col-md-6 col-sm-6">
+                                    <div class="form-group">
+                                        <label>image for app</label>
+                                        <img src="{{ URL::asset($edit->imageforapp) }}"
+                                            id="show_brand_logo" class="img-fluid" alt="menu imageforapp">
+                                            
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                
 
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>

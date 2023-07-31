@@ -472,8 +472,8 @@
                                                                                     <div>
                                                                                         &emsp;&nbsp;<img
                                                                                             src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-top:-15px;margin-bottom:40px;"
-                                                                                            alt="">
+                                                                                            style="width: 80px;margin-button:auto;"
+                                                                                            alt="brand logo">
                                                                                     </div>
                                                                                 </div>
 
@@ -496,7 +496,15 @@
                                                                                 @else
                                                                                     <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
                                                                                 @endif
+
+                                                                                @if ($value->biller->image!=null)
+                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                                @else
+                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
+                                                                                @endif
                                                                             </div>
+                                                                            
+                                        
                                                                         </div>
                                                                         <div class="row">
                                                                             <div class="col-7 text-left">
@@ -1328,7 +1336,7 @@
                                                                                     <div>
                                                                                         &emsp;&nbsp;<img
                                                                                             src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-top:-15px;margin-bottom:40px;"
+                                                                                            style="width: 50px;margin-button:auto;"
                                                                                             alt="">
                                                                                     </div>
                                                                                 </div>
@@ -1352,6 +1360,11 @@
                                                                                     <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
                                                                                 @else
                                                                                     <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                                @endif
+                                                                                @if ($value->biller->image!=null)
+                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                                @else
+                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
                                                                                 @endif
                                                                             </div>
                                                                         </div>
@@ -1735,7 +1748,7 @@
                                                                                     <div>
                                                                                         &emsp;&nbsp;<img
                                                                                             src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-top:-15px;margin-bottom:40px;"
+                                                                                            style="width: 80px;margin-button:auto;"
                                                                                             alt="">
                                                                                     </div>
                                                                                 </div>
@@ -2212,7 +2225,7 @@
                                                                                     <div>
                                                                                         &emsp;&nbsp;<img
                                                                                             src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-top:-15px;margin-bottom:40px;"
+                                                                                            style="width: 80px;margin-button:auto;"
                                                                                             alt="">
                                                                                     </div>
                                                                                 </div>
@@ -2235,6 +2248,12 @@
                                                                                     <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
                                                                                 @else
                                                                                     <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                                @endif
+
+                                                                                @if ($value->biller->image!=null)
+                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                                @else
+                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
                                                                                 @endif
                                                                             </div>
                                                                         </div>
@@ -3068,7 +3087,7 @@
                                                                                     <div>
                                                                                         &emsp;&nbsp;<img
                                                                                             src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-top:-15px;margin-bottom:40px;"
+                                                                                            style="width: 50px;margin-button:auto;"
                                                                                             alt="">
                                                                                     </div>
                                                                                 </div>
@@ -3091,6 +3110,12 @@
                                                                                     <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
                                                                                 @else
                                                                                     <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                                @endif
+
+                                                                                @if ($value->biller->image!=null)
+                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                                @else
+                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
                                                                                 @endif
                                                                             </div>
                                                                         </div>
@@ -3686,19 +3711,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-                <h2 class="title title-underline mb-4 ls-normal appear-animate">Our Partners</h2>
+                {{--<h2 class="title title-underline mb-4 ls-normal appear-animate">Our Partners</h2>
                 <div class="swiper-container swiper-theme brands-wrapper mb-9 appear-animate"
                     data-swiper-options="{
                     'spaceBetween': 0,
@@ -3717,14 +3730,14 @@
                             'slidesPerView': 6
                         }
                     }
-                }">
+                }">--}}
                     {{-- <div class="swiper-wrapper row gutter-no cols-xl-6 cols-lg-5 cols-md-4 cols-sm-3 cols-2">
                         @include('website.partners-list', ['partners' => $partners])
                     </div> --}}
                 </div>
                 <!-- End of Brands Wrapper -->
 
-                <h2 class="title title-underline mb-4 ls-normal appear-animate">Brand's</h2>
+                <h2 class="title title-underline ml-4 mb-4 ls-normal appear-animate">Brand's</h2>
                 <div class="row mb-6">
                     <div class="shop-default-brands mb-5">
                         <div class="brands-swiper swiper-container swiper-theme "

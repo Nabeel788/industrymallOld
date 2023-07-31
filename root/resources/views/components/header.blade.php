@@ -229,12 +229,12 @@ $settings = Settings::first();
 
                                         <ul class="megamenu" style="width:365%;height:450px;margin-top:-{{ $margnTop }}px!important;background-image: url({{ URL::asset('root/upload/menu/'.$menu->image) }});background-repeat:no-repeat;">
                                             @foreach ($menu->categories as $category)
-                                                <li>
-                                                    <h4 class="menu-title" style="height: 30px;">{{ $category->name }}</h4>
+                                                <li  style="position:relative; ">
+                                                    <h4 class="menu-title" style="height: 30px; ">{{ $category->name }}</h4>
                                                     <hr class="divider">
                                                     <ul>
                                                         @foreach ($category->subcategories as $subcategories)
-                                                            <li style="font-size:13px;">
+                                                            <li style="font-size:13px; ">
                                                                 <a href="{{ URL::to('/shop/subcat/' . $subcategories->id . '/' . $subcategories->slug) }}">{{ $subcategories->name }}</a>
                                                             </li>
                                                         @endforeach

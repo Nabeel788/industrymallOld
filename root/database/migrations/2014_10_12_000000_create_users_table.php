@@ -44,6 +44,12 @@ class CreateUsersTable extends Migration
             $table->string('member_since')->nullable();
             $table->string('certifications')->nullable();
             $table->text('basic_information')->nullable();
+            $table->string('website_link')->nullable();
+            $table->string('accepted_payment_type')->nullable();
+            $table->string('major_clients')->nullable();
+            $table->double('annual_export')->nullable();
+            $table->double('annual_import')->nullable();
+            $table->double('annual_revenue')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
