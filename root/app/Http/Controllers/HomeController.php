@@ -169,11 +169,14 @@ class HomeController extends Controller
     public function OutOfStockProductsList()
     {
         if (Auth::user()->role == 'Admin') {
-    $outOfStockItems = Stock::with('user:id,name')
+        $outOfStockItems = Stock::with('user:id,name')
         ->with('product:id,name,model_no') // Add 'model_number' to fetch 'Model Number'
         ->selectRaw("biller_id,pro_id,sum(qty_in) as qtyin, sum(qty_out) as qtyout")
+        ->where('biller_id', Auth::user()->id)
         ->groupBy('pro_id')
         ->get();
+    
+
 
     return view('dashboard-home.out_of_stock_items', compact('outOfStockItems'));
 } else {
