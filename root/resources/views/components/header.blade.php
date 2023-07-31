@@ -17,6 +17,7 @@ $settings = Settings::first();
 @endphp
 
 <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <!-- Start of Header -->
@@ -107,7 +108,8 @@ $settings = Settings::first();
             </div>
             <div class="header-right ml-4">
                 <div class="header-call d-xs-show d-lg-flex align-items-center">
-                    <a href="tel:#" class="w-icon-call"></a>
+                    <a href="tel:#" class="fas fa-phone-alt" style="font-size: 22px;"></a>
+                    {{-- class="w-icon-call" --}}
                     <div class="call-info d-lg-show">
                         <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
                             <a href="mailto:#" class="text-capitalize">Live Chat</a> or :

@@ -129,7 +129,126 @@ $locations = Locations::select('id', 'name')
         .invalid-feedback1{
             color: red;
         }
+
+        /* Style the slider container */
+.slider-container {
+    width: 300px; /* Adjust the width as needed */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Style the slider images container */
+/* Style the slider container */
+.slider-container {
+    width: 1019px; /* Set the fixed width to match the image size */
+    height: 520px; /* Set the fixed height to match the image size */
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+/* Style the slider images container */
+.slider-images {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease;
+}
+
+/* Style the slider images */
+.slider-images img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Maintain aspect ratio and fill the container */
+}
+button {
+    margin-top: 10px;
+    cursor: pointer;
+}
+    .overlay {
+        position: absolute;
+        top: 1;
+        left: 1;
+        width: 100%;
+        height: 100%;
+    }
+    .transparent-div {
+            width: 300px;
+            height: 200px;
+            background-color: rgba(218, 187, 187, 0.5); /* Transparent red (change the last value for different opacity) */
+            border: 1px solid black;
+        }
+        .prev-option,
+.next-option {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.prev-option {
+    left: 10px;
+}
+
+.next-option {
+    right: 10px;
+}
     </style>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    // Function to move the slider to the next image
+    function nextSlide() {
+        const sliderImages = $('.slider-images');
+        const firstSlide = sliderImages.find('img:first');
+        const slideWidth = firstSlide.outerWidth();
+
+        // Animate the slider to move left by the width of one slide
+        sliderImages.animate({ marginLeft: -slideWidth }, 500, function () {
+            // Move the first slide to the end of the slider
+            sliderImages.append(firstSlide);
+            // Reset the margin to 0
+            sliderImages.css('margin-left', 0);
+        });
+    }
+
+    // Set interval to automatically move to the next slide every few seconds
+    setInterval(nextSlide, 3000);
+
+     // Bind click events to the buttons
+     $('#prevBtn').click(prevSlide);
+    $('#nextBtn').click(nextSlide);
+
+    const sliderImages = document.querySelector('.slider-images');
+    const prevOption = document.querySelector('.prev-option');
+    const nextOption = document.querySelector('.next-option');
+    let currentSlide = 0;
+
+    prevOption.addEventListener('click', () => {
+        const imageWidth = sliderImages.children[currentSlide].clientWidth;
+        currentSlide = (currentSlide - 1 + sliderImages.children.length) % sliderImages.children.length;
+        updateSliderPosition(imageWidth);
+    });
+
+    nextOption.addEventListener('click', () => {
+        const imageWidth = sliderImages.children[currentSlide].clientWidth;
+        currentSlide = (currentSlide + 1) % sliderImages.children.length;
+        updateSliderPosition(imageWidth);
+    });
+
+    function updateSliderPosition(imageWidth) {
+        sliderImages.style.transform = `translateX(-${currentSlide * imageWidth}px)`;
+    }
+</script>
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -148,46 +267,73 @@ $locations = Locations::select('id', 'name')
                 </div>
             </nav>
             <!-- End of Breadcrumb-nav -->
-            
-            <div class="container slider-section mb-5">
-                <!-- Slider -->
-                <div class="row">
-                    <div class="col-lg-8 col-md-8 col-sm-12">
-                        @if ($vendor->banner_image1!= null)
-                        <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image1) }}" alt=""
+            {{-- <div class="slider-container">
+                <div class="slider-images">
+                    @if ($vendor->banner_image1!= null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image1)}}" alt="Image 1">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
                         class="slider-img1">
-                        @else
-                        <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
-                            class="slider-img1">
-                        @endif
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                @if ($vendor->banner_image2!= null)
-                                <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image2) }}" alt=""
-                                class="slider-img2">
-                                @else
-                                <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
-                                    class="slider-img2">
-                                @endif
-                            </div>
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                @if ($vendor->banner_image3!= null)
-                                <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image3) }}" alt=""
-                                class="slider-img3">
-                                @else
-                                <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
-                                    class="slider-img3">
-                                @endif
-                            </div>
+                    @endif
+                    @if ($vendor->banner_image2!= null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image2)}}" alt="Image 2">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
+                    class="slider-img2">
+                @endif
+                @if ($vendor->banner_image3!= null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image3)}}" alt="Image 3">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt=""
+                        class="slider-img3">
+                    @endif
+                </div>
+            </div> --}}
+<div class="row"><br></div>
+            <div class="slider-container">
+                <div class="slider-images">
+                    <!-- First image -->
+                    @if ($vendor->banner_image1 != null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image1)}}" alt="Image 1">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img1">
+                    @endif
+
+                    <!-- Second image -->
+                    @if ($vendor->banner_image2 != null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image2)}}" alt="Image 2">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img2">
+                    @endif
+
+                    <!-- Third image -->
+                    @if ($vendor->banner_image3 != null)
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image3)}}" alt="Image 3">
+                    @else
+                    <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img3">
+                    @endif
+                    <div class="prev-option"> < </div>
+                    <div class="next-option"> > </div>
+                    <!-- Transparent overlay -->
+                    <div class="transparent-div">
+                    <div class="row overlay">
+                        <div class="col-lg-3 col-md-3 col-sm-3">
+                            <ul class="list-group">
+                                <li><a href="#products-section"><i class="fa fa-building"></i> Products</a></li>
+                                <li><a href="#best-selling-products-section"><i class="fa fa-cube"></i> Best Selling</a></li>
+                                <li><a href="#vendor-album"><i class="fa fa-search"></i> Vendor Album</a></li>
+                                <li><a href="#basic-information"><i class="fa fa-hourglass-half"></i> Basic Information</a></li>
+                                <li><a href="#company-details"><i class="fa fa-signal" id="products-section"></i> Company Details</a></li>
+                                <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- End Slider -->
-                <!-- Dropdown Section -->
-                <br>
-                <div class="row">
+            </div>
+            </div>
+
+<br>
+{{-- <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3">
                         <ul class="list-group">
                             <li><a href="#products-section"><i class="fa fa-building"></i> Products</a></li>
@@ -195,41 +341,38 @@ $locations = Locations::select('id', 'name')
                             <li><a href="#vendor-album"><i class="fa fa-search"></i> Vendor Album</a></li>
                             <li><a href="#basic-information"><i class="fa fa-hourglass-half"></i> Basic Information</a></li>
                             <li><a href="#company-details"><i class="fa fa-signal" id="products-section"></i> Company Details</a></li>
-                            <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li>
+                            <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li> --}}
 
                             {{-- <div class="row">
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#products-section"><i class="fa fa-building"></i> Products</a></li>
-                           
-                        </div>  
+
+                        </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#best-selling-products-section"><i class="fa fa-cube"></i> Best Selling</a></li>
-                            
+
                         </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#vendor-album"><i class="fa fa-search"></i> Vendor Album</a></li>
-                            
+
                         </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#basic-information"><i class="fa fa-hourglass-half"></i> Basic Information</a></li>
-                           
+
                         </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#company-details"><i class="fa fa-signal" id="products-section"></i> Company Details</a></li>
-                            
+
                         </div>
                             <div class="col-lg-2 col-md-2 col-sm-2">
                             <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li>
-                             
+
                         </div>
-                            </div>   --}}
-                        </ul>
-                    </div>
-                </div>
+                            </div>--}}
                 <!-- End Dropdown Section -->
             </div>
-            
             <!-- Dropdown & Products Section -->
+            <br><br>
             <div class="page-content mb-12">
                 <div class="container">
                     <!-- Start of Main Content -->
@@ -517,7 +660,7 @@ $locations = Locations::select('id', 'name')
                                                                 Details</a>
                                                         </div>
                                                         <div class="col-5 text-right">
-                                                            @php 
+                                                            @php
                                                             $stars=0;
                                                             $count=0;
                                                             @endphp
@@ -529,7 +672,7 @@ $locations = Locations::select('id', 'name')
                                                             @endphp
                                                             @endif
                                                             @endforeach
-                                                            
+
                                                             @if($count!=0 )
                                                             <div class="col-5 text-right">
                                                                 <br>
@@ -543,14 +686,14 @@ $locations = Locations::select('id', 'name')
                                                                     {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                 </div>
                                                             </div>
-                                                            @else  
+                                                            @else
                                                             <div class="col-5 text-right">
-                                                                
+
                                                                 <br>
                                                                 <div class="ratings-container"style="margin-left:120px;">
                                                                     <div class="ratings-full">
                                                                         {{-- <p>{{ $count }}</p> --}}
-                                                                        
+
                                                                         <span class="ratings" style="width:0%;"></span>
                                                                         <span class="tooltiptext tooltip-top"></span>
                                                                     </div>
@@ -593,7 +736,7 @@ $locations = Locations::select('id', 'name')
                                                                 Details</a>
                                                         </div>
                                                         <div class="col-5 text-right">
-                                                            @php 
+                                                            @php
                                                             $stars=0;
                                                             $count=0;
                                                             @endphp
@@ -605,7 +748,7 @@ $locations = Locations::select('id', 'name')
                                                             @endphp
                                                             @endif
                                                             @endforeach
-                                                            
+
                                                             @if($count!=0 )
                                                             <div class="col-5 text-right">
                                                                 <br>
@@ -619,14 +762,14 @@ $locations = Locations::select('id', 'name')
                                                                     {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                 </div>
                                                             </div>
-                                                            @else  
+                                                            @else
                                                             <div class="col-5 text-right">
-                                                                
+
                                                                 <br>
                                                                 <div class="ratings-container"style="margin-left:110px;">
                                                                     <div class="ratings-full">
                                                                         {{-- <p>{{ $count }}</p> --}}
-                                                                        
+
                                                                         <span class="ratings" style="width:0%;"></span>
                                                                         <span class="tooltiptext tooltip-top"></span>
                                                                     </div>
@@ -711,7 +854,7 @@ $locations = Locations::select('id', 'name')
                                 }">
                                     <div class="swiper-wrapper cols-md-3 cols-sm-2 cols-1">
                                         @foreach ($relatedProducts as $key=>$value)
-                                        <div class="swiper-slide post text-center"> 
+                                        <div class="swiper-slide post text-center">
                                             <div class="product-wrap">
                                                 <div class="product text-center" style="border: 1px solid #e3e3e3;">
                                                     <figure class="product-media">
@@ -756,7 +899,7 @@ $locations = Locations::select('id', 'name')
                                                                 &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
                                                             </p>
                                                         </div>
-                
+
                                                         <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
                                                             class="ml-auto">
                                                             <input type="hidden" id="amount1{{ $key }}"
@@ -764,7 +907,7 @@ $locations = Locations::select('id', 'name')
                                                             <input type="hidden" name="price"
                                                                 id="amount2{{ $key }}"
                                                                 value="{{ $value->new_price }}">
-                
+
                                                             <select class="to" id="currencyChange{{ $key }}">
                                                                 <option value="USD" selected>USD</option>
                                                                 <option value="AED">AED</option>
@@ -834,7 +977,7 @@ $locations = Locations::select('id', 'name')
                                                                             // console.log('data: ', data.rates);
                                                                             var res = (data.rates[currency] / data.rates.USD) * amount;
                                                                             var res2 = (data.rates[currency] / data.rates.USD) * amount2;
-                
+
                                                                             $('#finalValue{{ $key }}').html(currency + '' + res
                                                                         .toFixed());
                                                                             $('#finalValue2{{ $key }}').html(currency + '' + res2
@@ -862,10 +1005,10 @@ $locations = Locations::select('id', 'name')
                                                                             style="width: 50px!important;margin-top:-20px;" alt="">
                                                                     </div>
                                                                 </div>
-                
+
                                                             </div>
                                                             <div class="col-4 text-right">
-                                                                @php 
+                                                                @php
                                                                 $sumin=0;
                                                                 $sumout=0;
                                                                 $total=0;
@@ -881,11 +1024,11 @@ $locations = Locations::select('id', 'name')
                                                                 @endphp
                                                                 @endif
                                                                 @endforeach
-                                                                
+
                                                                 @if($total<=0  )
                                                                 {{-- <p>{{ $total }}</p> --}}
                                                                 <p style="color: rgb(187, 28, 0);font-style: italic;font-size: 10px;">OUT OF STOCK</p>
-                                                                @else  
+                                                                @else
                                                                 {{-- <p>{{ $total }}</p> --}}
                                                                 <p style="color: green;font-style: italic;font-size: 10px;">IN STOCK</p>
                                                                 @endif
@@ -956,7 +1099,7 @@ $locations = Locations::select('id', 'name')
                                                                     </div>
                                                                 </div>
                                                             </div>
-                
+
                                                             <div class="col-5 text-right" style="margin-top: -13px;">
                                                                 <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
                                                                     title="Add To Wishlist" style="font-size: 10px;"><i
@@ -971,7 +1114,7 @@ $locations = Locations::select('id', 'name')
                                                                     Details</a>
                                                             </div>
                                                             <div class="col-5 text-right">
-                                                                @php 
+                                                                @php
                                                                 $stars=0;
                                                                 $count=0;
                                                                 @endphp
@@ -983,7 +1126,7 @@ $locations = Locations::select('id', 'name')
                                                                 @endphp
                                                                 @endif
                                                                 @endforeach
-                                                                
+
                                                                 @if($count!=0 )
                                                                 <div class="col-5 text-right">
                                                                     <br>
@@ -997,14 +1140,14 @@ $locations = Locations::select('id', 'name')
                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                     </div>
                                                                 </div>
-                                                                @else  
+                                                                @else
                                                                 <div class="col-5 text-right">
-                                                                    
+
                                                                     <br>
                                                                     <div class="ratings-container"style="margin-left:110px;">
                                                                         <div class="ratings-full">
                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                            
+
                                                                             <span class="ratings" style="width:0%;"></span>
                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                         </div>
@@ -1177,7 +1320,7 @@ $locations = Locations::select('id', 'name')
                 <form action="{{ URL::to('vendor-contact-sendMessage#vendorContactForm') }}" id="vendorContactForm" method="post">
                     <input type="hidden" name="make" id="make" value="{{ $vendor->name }}">
                     <input type="hidden" name="vid" id="vid" value="{{ $vendor->id }}">
-                    @csrf                    
+                    @csrf
                     <div class="container pt-5">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12">

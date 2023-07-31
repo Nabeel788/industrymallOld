@@ -16,34 +16,34 @@
                         <div class="card-header">
                             <h3 class="card-title">Banner's Management</h3>
                         </div>
-       
+
                         {!! Form::open([
                             'url' => 'vendor-banners',
                             'method' => 'POST',
                             'class' => 'form-horizontal',
                             'enctype' => 'multipart/form-data',
                         ]) !!}
-                    
+
                         {!! Form::hidden('vendor_id',Auth::User()->id,['id'=>'vendor_id']) !!}
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
-                                        <label for="image">Image 1</label>
+                                        <label for="image">Slider 1 </label>
                                         <input type="file" name="image1" id="image1" class="form-control">
                                         @error('image1')
                                             <span class="invalid-feedback1">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image">Image 2</label>
+                                        <label for="image">Slider 2</label>
                                         <input type="file" name="image2" id="image2" class="form-control">
                                         @error('image2')
                                             <span class="invalid-feedback1">{{ $message }}</span>
                                         @enderror
                                     </div>
                                     <div class="form-group">
-                                        <label for="image">Image 3</label>
+                                        <label for="image">Slider 3</label>
                                         <input type="file" name="image3" id="image3" class="form-control">
                                         @error('image3')
                                             <span class="invalid-feedback1">{{ $message }}</span>
