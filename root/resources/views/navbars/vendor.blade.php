@@ -49,6 +49,10 @@
                         <p>Album</p>
                     </a>
                 </li>
+
+                
+
+                
             </ul>
         </li>
         <li class="nav-item has-treeview">
@@ -82,5 +86,13 @@
                 </p>
             </a>
         </li>
+
+        <li class="nav-item">
+                    <a href="{{ asset('/account-setting/'. Auth::user()->id.'/edit') }}" class="nav-link">
+                        <i class="fa fa-user nav-icon"></i>
+                        <p>Profile</p>
+        </a>
+        </li>
+            
     </ul>
 </nav>

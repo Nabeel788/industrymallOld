@@ -111,7 +111,7 @@ thead tr:nth-child(even) td{
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-phone" style="padding:2px;font-size:15px!important;"> </i> {{  $order->order_details[0]->vendor->phone }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-mobile" style="padding:2px;font-size:20px!important;"> </i> {{  $order->order_details[0]->vendor->phone }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:12px;"><i class="fa fa-envelope" style="padding:2px;font-size:12px!important;"> </i> {{  $order->order_details[0]->vendor->email }}</p>
-                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-globe" style="padding:2px;"> </i>{{-- {{  $order->order_details[0]->vendor->site }}--}} www.industrymall.net</p>
+                                                                <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-globe" style="padding:2px;"> </i> {{  $order->order_details[0]->vendor->website_link }}</p>
                                                                 <p style="font-weight:500;color:black;font-size:13px;"><i class="fa fa-thumb-tack" style="padding:2px;"> </i> {{  $order->city }}</p>
 
                                                             </div>
