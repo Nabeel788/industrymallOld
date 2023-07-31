@@ -21,12 +21,16 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>Order#</th>
                                     <th>Order Date</th>
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
-                                    <th>Customer</th>
-                                    <th>Vendor</th>
+                                    <th>Customer Name</th>
                                     <th>Status</th>
+                                    <th>view Invoice</th>
+                                    <th>Vendor</th>
+                                    <th>Reviews</th>
+                                    <th>Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,19 +53,23 @@
                                         </tr>
                                     @endisset
                                 @empty
-                                    <td colspan="7" align="center" style="color: red;font-weight:bold;"><b>Record Not
+                                    <td colspan="11" align="center" style="color: red;font-weight:bold;"><b>Record Not
                                             Found</b></td>
                                 @endforelse
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>Order#</th>
                                     <th>Order Date</th>
                                     <th>Shipping Date</th>
                                     <th>Qty</th>
-                                    <th>Customer</th>
-                                    <th>Vendor</th>
+                                    <th>Customer Name</th>
                                     <th>Status</th>
+                                    <th>view Invoice</th>
+                                    <th>Vendor</th>
+                                    <th>Reviews</th>
+                                    <th>Actions</th>
                                 </tr>
                             </tfoot>
                         </table>

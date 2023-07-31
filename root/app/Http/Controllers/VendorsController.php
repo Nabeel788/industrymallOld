@@ -28,7 +28,8 @@ class VendorsController extends Controller
     public function index()
     {
         $vendors = User::select('id','name','phone1','email','status')->whereRole('vendor')->get();
-        return view('vendors.index',compact('vendors'));
+        $data = Order::orderBy('id', 'desc')->get();
+        return view('vendors.index',compact('vendors', 'data'));
     }
 
     public function create()

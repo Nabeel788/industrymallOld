@@ -21,7 +21,11 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
-                                    <th>Product</th>
+                                    <th>Product Name</th>
+                                    <th>Model Number</th>
+                                    <th>View Product</th>
+                                    <th>Add Purchase</th>
+                                    <th>Downlod Report</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -30,6 +34,10 @@
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
                                             <td>{{ $value->product->name }}</td>
+                                            <td>{{ $value->product->model_no}} </td>    
+                                            <td><button class="btn btn-info">info</button></td>
+                                            <td><button class="btn btn-success">Upload</button></td>
+                                            <td><button class="btn btn-primary">Download</button></td>
                                         </tr>
                                     @endif
                                 @empty

@@ -22,22 +22,28 @@
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>Vendor ID</th>
                                     <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Phone No</th>
-                                    <th>Gender</th>
-                                    <th>Email</th>
+                                    <th>Vendor Company</th>
+                                    <th>Address</th>
+                                    <th>Contact Number</th>
+                                    <th>Email ID</th>
+                                    <th>Memebership</th>
+                                    <th>Actions Buttons</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse ($Vendors as $key=>$value)
                                 <tr>
                                     <td>{{ $key+1 }}</td>
+                                    <td>{{ $value->id}}</td>
                                     <td>{{ $value->name }}</td>
                                     <td>{{ $value->company }}</td>
+                                    <td>{{ $value->address1 }}</td>
                                     <td>{{ $value->phone1 }}</td>
-                                    <td>{{ $value->gender }}</td>
                                     <td>{{ $value->email }}</td>
+                                    <td>{{ $value->role }}</td>
+                                    <td>{{ $value->country }}</td>
                                 </tr>
                                 @empty
                                 <td colspan="7" align="center" style="color: red;font-weight:bold;"><b>Record Not Found</b></td>
@@ -46,11 +52,14 @@
                             <tfoot>
                                 <tr>
                                     <th>Sr.</th>
+                                    <th>Vendor ID</th>
                                     <th>Name</th>
-                                    <th>Company</th>
-                                    <th>Phone No</th>
-                                    <th>Gender</th>
-                                    <th>Email</th>
+                                    <th>Vendor Company</th>
+                                    <th>Address</th>
+                                    <th>Contact Number</th>
+                                    <th>Email ID</th>
+                                    <th>Memebership</th>
+                                    <th>Actions</th>
                                 </tr>
                             </tfoot>
                         </table>

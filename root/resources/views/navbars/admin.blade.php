@@ -1,9 +1,13 @@
 <!-- Sidebar Menu -->
+
+{{-- (Note) changed assest to url due to localhost issue  --}}
+
+
 <nav class="mt-2">
     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-            <a href="{{ asset('/home') }}" class="nav-link">
+            <a href="{{ route('home') }}" class="nav-link">
                 <i class="nav-icon fas fa-tachometer-alt" aria-hidden="true"></i>
                 <p>
                     Dashboard
@@ -20,13 +24,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/brand') }}" class="nav-link">
+                    <a href="{{ url('brand') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Brands</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/our-locations') }}" class="nav-link">
+                    <a href="{{ url('/our-locations') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Locations</p>
                     </a>
@@ -43,19 +47,19 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/menus') }}" class="nav-link">
+                    <a href="{{ url ('/menus') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Menus</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/categories') }}" class="nav-link">
+                    <a href="{{ url ('/categories') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Categories</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/sub-category') }}" class="nav-link">
+                    <a href="{{ url ('/sub-category') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Sub Categories</p>
                     </a>
@@ -72,38 +76,38 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/our-sizes') }}" class="nav-link">
+                    <a href="{{ url ('/our-sizes') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>All Sizes</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ asset('/products/create') }}" class="nav-link">
+                    <a href="{{ url ('/products/create') }}" class="nav-link">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>Add Product</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/products') }}" class="nav-link">
+                    <a href="{{ url ('/products') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Products</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/product-contacts') }}" class="nav-link">
+                    <a href="{{ url ('/product-contacts') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Customer Queries</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/product-info/1/edit') }}" class="nav-link">
+                    <a href="{{ url ('/product-info/1/edit') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Product Info</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/product-reviews') }}" class="nav-link">
+                    <a href="{{ url ('/product-reviews') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Product Reviews</p>
                     </a>
@@ -121,7 +125,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/our-aboutus/1/edit') }}" class="nav-link">
+                    <a href="{{ url ('/our-aboutus/1/edit') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>
                             About Us
@@ -129,7 +133,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/our-services') }}" class="nav-link">
+                    <a href="{{ url ('/our-services') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             All Services
@@ -137,7 +141,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/our-testimonials') }}" class="nav-link">
+                    <a href="{{ url ('/our-testimonials') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>
                             Testimonials
@@ -145,7 +149,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/our-skills') }}" class="nav-link">
+                    <a href="{{ url ('/our-skills') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>
                             Skills
@@ -153,7 +157,7 @@
                     </a>
                 </li>
                 {{-- <li class="nav-item">
-                    <a href="{{ asset('/our-team') }}" class="nav-link">
+                    <a href="{{ url ('/our-team') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>
                             Team
@@ -172,13 +176,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/partners') }}" class="nav-link">
+                    <a href="{{ url ('/partners') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Partners</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/our-terms-conditions') }}" class="nav-link">
+                    <a href="{{ url ('/our-terms-conditions') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>
                             Terms & Conditions
@@ -186,7 +190,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/return-exchange-policy') }}" class="nav-link">
+                    <a href="{{ url ('/return-exchange-policy') }}" class="nav-link">
                         <i class="far fa-envelope nav-icon"></i>
                         <p>
                             Return Exchange Policy
@@ -203,19 +207,19 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ asset('/blogs-categories') }}" class="nav-link">
+                            <a href="{{ url ('/blogs-categories') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Blogs Category</p>
                             </a>
                         </li>
                          <li class="nav-item">
-                            <a href="{{ asset('/blogs-sub-categories') }}" class="nav-link">
+                            <a href="{{ url ('/blogs-sub-categories') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Blogs Sub Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/our-blogs') }}" class="nav-link">
+                            <a href="{{ url ('/our-blogs') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Blogs</p>
                             </a>
@@ -232,13 +236,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ asset('/events-categories') }}" class="nav-link">
+                            <a href="{{ url ('/events-categories') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Events Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/our-events') }}" class="nav-link">
+                            <a href="{{ url ('/our-events') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Events</p>
                             </a>
@@ -255,13 +259,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ asset('/training-categories') }}" class="nav-link">
+                            <a href="{{ url ('/training-categories') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Training Category</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ asset('/our-trainings') }}" class="nav-link">
+                            <a href="{{ url ('/our-trainings') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Trainings</p>
                             </a>
@@ -278,13 +282,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ asset('/intructor') }}" class="nav-link">
+                            <a href="{{ url ('/intructor') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>View Instructors</p>
                             </a>
                         </li>
                         {{-- <li class="nav-item">
-                            <a href="{{ asset('/add-intructor') }}" class="nav-link">
+                            <a href="{{ url ('/add-intructor') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Trainings</p>
                             </a>
@@ -296,7 +300,7 @@
         </li>
 
         <li class="nav-item">
-            <a href="{{ asset('/orders') }}" class="nav-link">
+            <a href="{{ url ('/orders') }}" class="nav-link">
                 <i class="fas fa-bell nav-icon"></i>
                 <p>
                     Orders
@@ -304,7 +308,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ asset('/vendors') }}" class="nav-link">
+            <a href="{{ url ('/vendors') }}" class="nav-link">
                 <i class="fas fa-bell nav-icon"></i>
                 <p>
                     Vendors
@@ -321,13 +325,13 @@
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/purchase/create') }}" class="nav-link">
+                    <a href="{{ url ('/purchase/create') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Add Purchase</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/purchase') }}" class="nav-link">
+                    <a href="{{ url ('/purchase') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Purchase</p>
                     </a>
@@ -335,7 +339,7 @@
             </ul>
         </li>
         <li class="nav-item">
-            <a href="{{ asset('/home-settings') }}" class="nav-link">
+            <a href="{{ url ('/home-settings') }}" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
                 <p>
                     Home Settings
@@ -343,7 +347,7 @@
             </a>
         </li>
          <li class="nav-item">
-            <a href="{{ asset('/blogs-settings') }}" class="nav-link">
+            <a href="{{ url ('/blogs-settings') }}" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
                 <p>
                     Blogs Settings
@@ -351,7 +355,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ asset('/banners') }}" class="nav-link">
+            <a href="{{ url ('/banners') }}" class="nav-link">
                 <i class="fas fa-cog nav-icon"></i>
                 <p>
                     Home Banners
@@ -373,13 +377,13 @@ Projects
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/categories/create') }}" class="nav-link">
+<a href="{{ url ('/categories/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Project</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/categories') }}" class="nav-link">
+<a href="{{ url ('/categories') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Projects</p>
 </a>
@@ -397,13 +401,13 @@ Accounts
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/accounts/create') }}" class="nav-link">
+<a href="{{ url ('/accounts/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Account</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/accounts') }}" class="nav-link">
+<a href="{{ url ('/accounts') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Accounts</p>
 </a>
@@ -422,13 +426,13 @@ Donors
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/donors/create') }}" class="nav-link">
+<a href="{{ url ('/donors/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Donor</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/donors') }}" class="nav-link">
+<a href="{{ url ('/donors') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Donors</p>
 </a>
@@ -447,13 +451,13 @@ Payments
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/payments/create') }}" class="nav-link">
+<a href="{{ url ('/payments/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Expense</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/receive/create') }}" class="nav-link">
+<a href="{{ url ('/receive/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Donation</p>
 </a>
@@ -472,13 +476,13 @@ Donation Slip
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/receive') }}" class="nav-link">
+<a href="{{ url ('/receive') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Donations</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/payments') }}" class="nav-link">
+<a href="{{ url ('/payments') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Expenses</p>
 </a>
@@ -498,13 +502,13 @@ Reports
 <ul class="nav nav-treeview">
 
 <li class="nav-item">
-<a href="{{ asset('/payment-report/create') }}" class="nav-link">
+<a href="{{ url ('/payment-report/create') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>Expense Report</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/receive-report/create') }}" class="nav-link">
+<a href="{{ url ('/receive-report/create') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>Donation Ledger</p>
 </a>
@@ -523,13 +527,13 @@ Child Registration
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/registration/create') }}" class="nav-link">
+<a href="{{ url ('/registration/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Registration</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/registration') }}" class="nav-link">
+<a href="{{ url ('/registration') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Registrations</p>
 </a>
@@ -547,13 +551,13 @@ Stitching Center
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/stitching-center/create') }}" class="nav-link">
+<a href="{{ url ('/stitching-center/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Stitching</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/stitching-center') }}" class="nav-link">
+<a href="{{ url ('/stitching-center') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Stitching</p>
 </a>
@@ -571,13 +575,13 @@ Special Child
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/stitching-center/create') }}" class="nav-link">
+<a href="{{ url ('/stitching-center/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Special Child</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/stitching-center') }}" class="nav-link">
+<a href="{{ url ('/stitching-center') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Special Childs</p>
 </a>
@@ -595,13 +599,13 @@ Community Help
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/community-help/create') }}" class="nav-link">
+<a href="{{ url ('/community-help/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add HELP</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/community-help') }}" class="nav-link">
+<a href="{{ url ('/community-help') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Helps</p>
 </a>
@@ -619,13 +623,13 @@ CV
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/cv/create') }}" class="nav-link">
+<a href="{{ url ('/cv/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add CV</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/cv') }}" class="nav-link">
+<a href="{{ url ('/cv') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All CVs</p>
 </a>
@@ -642,13 +646,13 @@ Salary Form
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/salary-form/create') }}" class="nav-link">
+<a href="{{ url ('/salary-form/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Salary Slip</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/salary-form') }}" class="nav-link">
+<a href="{{ url ('/salary-form') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Salary Slips</p>
 </a>
@@ -666,13 +670,13 @@ Character Certificate
 </a>
 <ul class="nav nav-treeview">
 <li class="nav-item">
-<a href="{{ asset('/character-certificate/create') }}" class="nav-link">
+<a href="{{ url ('/character-certificate/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Certificate</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/character-certificate') }}" class="nav-link">
+<a href="{{ url ('/character-certificate') }}" class="nav-link">
   <i class="far fa-circle nav-icon"></i>
   <p>All Certificates</p>
 </a>
@@ -690,13 +694,13 @@ Character Certificate
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="{{ asset('/roles/create') }}" class="nav-link">
+                    <a href="{{ url ('/roles/create') }}" class="nav-link">
                         <i class="nav-icon fas fa-plus"></i>
                         <p>Add User</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('/roles') }}" class="nav-link">
+                    <a href="{{ url ('/roles') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>All Users</p>
                     </a>
@@ -716,32 +720,32 @@ Character Certificate
             <ul class="nav nav-treeview">
                 <!---
 <li class="nav-item">
-<a href="{{ asset('/categories/create') }}" class="nav-link">
+<a href="{{ url ('/categories/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Categories</p>
 </a>
 </li>---->
                 <li class="nav-item">
-                    <a href="{{ asset('/account-group') }}" class="nav-link">
+                    <a href="{{ url ('/account-group') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Account Group</p>
                     </a>
                 </li>
                 <!----
 <li class="nav-item">
-<a href="{{ asset('/sub-category/create') }}" class="nav-link">
+<a href="{{ url ('/sub-category/create') }}" class="nav-link">
   <i class="nav-icon fas fa-plus"></i>
   <p>Add Sub Categories</p>
 </a>
 </li>--->
                 <li class="nav-item">
-                    <a href="{{ asset('accounts') }}" class="nav-link">
+                    <a href="{{ url ('accounts') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Accounts</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ asset('purchase') }}" class="nav-link">
+                    <a href="{{ url ('purchase') }}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Purchase</p>
                     </a>
@@ -750,7 +754,7 @@ Character Certificate
         </li>
 
         <!-- <li class="nav-item">
-<a href="{{ asset('/categories') }}" class="nav-link">
+<a href="{{ url ('/categories') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>
 Categories
@@ -758,7 +762,7 @@ Categories
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/accounts') }}" class="nav-link">
+<a href="{{ url ('/accounts') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>
 Accounts
@@ -766,7 +770,7 @@ Accounts
 </a>
 </li> -->
         <!--  <li class="nav-item">
-<a href="{{ asset('/donors') }}" class="nav-link">
+<a href="{{ url ('/donors') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>
 Donors
@@ -784,13 +788,13 @@ Widgets
 </li> -->
         <!--  <li class="nav-header">Donors</li>
 <li class="nav-item">
-<a href="{{ asset('/donors/create') }}" class="nav-link">
+<a href="{{ url ('/donors/create') }}" class="nav-link">
 <i class="nav-icon fas fa-plus"></i>
 <p>Register Donor</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/donors') }}" class="nav-link">
+<a href="{{ url ('/donors') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>All Donors</p>
 </a>
@@ -798,13 +802,13 @@ Widgets
 
 <li class="nav-header">Expenses</li>
 <li class="nav-item">
-<a href="{{ asset('/payments/create') }}" class="nav-link">
+<a href="{{ url ('/payments/create') }}" class="nav-link">
 <i class="nav-icon fas fa-plus"></i>
 <p>Add Expense</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/payment-report/create') }}" class="nav-link">
+<a href="{{ url ('/payment-report/create') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>Expense Report</p>
 </a>
@@ -812,13 +816,13 @@ Widgets
 
 <li class="nav-header">Receive</li>
 <li class="nav-item">
-<a href="{{ asset('/receive/create') }}" class="nav-link">
+<a href="{{ url ('/receive/create') }}" class="nav-link">
 <i class="nav-icon fas fa-plus"></i>
 <p>Receive</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/receive-report/create') }}" class="nav-link">
+<a href="{{ url ('/receive-report/create') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>Donor Ledgers</p>
 </a>
@@ -826,13 +830,13 @@ Widgets
 
 <li class="nav-header">Registration</li>
 <li class="nav-item">
-<a href="{{ asset('/registration/create') }}" class="nav-link">
+<a href="{{ url ('/registration/create') }}" class="nav-link">
 <i class="nav-icon fas fa-plus"></i>
 <p>New Registration</p>
 </a>
 </li>
 <li class="nav-item">
-<a href="{{ asset('/registration') }}" class="nav-link">
+<a href="{{ url ('/registration') }}" class="nav-link">
 <i class="nav-icon fas fa-users"></i>
 <p>All Registrations</p>
 </a>
