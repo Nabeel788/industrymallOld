@@ -29,7 +29,7 @@
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <div class="form-group">
-                                        <label for="image">Slider 1 </label>
+                                        <label for="image">Slider 1</label>
                                         <input type="file" name="image1" id="image1" class="form-control">
                                         @error('image1')
                                             <span class="invalid-feedback1">{{ $message }}</span>

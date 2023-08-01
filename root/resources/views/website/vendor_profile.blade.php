@@ -65,7 +65,7 @@ $locations = Locations::select('id', 'name')
 
     <script src="{{ URL::asset('website-assets/vendor/jquery/jquery.min.js') }}"></script>
     <style>
-        .product-wrapper.row [class*=col-] {
+         .product-wrapper.row [class*=col-] {
             margin-bottom: 0px !important;
         }
 
@@ -111,6 +111,46 @@ $locations = Locations::select('id', 'name')
         .product-media1{
             box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
         }
+    .zoomable-image {
+        transition: transform 0.9s ease;
+        overflow: hidden;
+    }
+/* Add this CSS to hide the scrollbar and show the full content */
+.mfp-content {
+    overflow: hidden;
+}
+.popup-image{
+    overflow: hidden;
+}
+
+    .zoomable-image:hover {
+        transform: scale(1.2);
+        z-index: 1000;
+        overflow: hidden;
+    }
+    .enlarged-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+    }
+
+    /* Styling for the enlarged image */
+    .enlarged-image {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    /* Remove vertical scrollbar for the main container */
+    .col-lg-12 {
+        overflow-y: hidden;
+    }
         .basic-information-title{
             margin-top: 50px;
         }
@@ -164,21 +204,8 @@ button {
     margin-top: 10px;
     cursor: pointer;
 }
-    .overlay {
-        position: absolute;
-        top: 1;
-        left: 1;
-        width: 100%;
-        height: 100%;
-    }
-    .transparent-div {
-            width: 300px;
-            height: 200px;
-            background-color: rgba(218, 187, 187, 0.5); /* Transparent red (change the last value for different opacity) */
-            border: 1px solid black;
-        }
         .prev-option,
-.next-option {
+        .next-option {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -191,18 +218,22 @@ button {
     line-height: 40px;
     cursor: pointer;
 }
-
 .prev-option {
     left: 10px;
+    margin-top: 250px;
 }
 
 .next-option {
-    right: 10px;
+    right: 0px;
+    margin-top: 250px;
 }
-    </style>
-<!-- Include jQuery library -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+<!-- Include jQuery library -->
+{{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
     // Function to move the slider to the next image
     function nextSlide() {
@@ -243,12 +274,25 @@ button {
         updateSliderPosition(imageWidth);
     });
 
-    function updateSliderPosition(imageWidth) {
-        sliderImages.style.transform = `translateX(-${currentSlide * imageWidth}px)`;
-    }
 </script>
 <!-- Include jQuery library -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- Add this in the <head> section -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Add this script after loading the jQuery library -->
+<script>
+ $(document).ready(function() {
+        $('.popup-image').magnificPopup({
+       type: 'image',
+       src: function() {
+        return $(this).find('img').attr('href');
+             },
+             gallery: {
+       enabled: true
+       }
+   });
+   });
+</script>
 </head>
 
 <body>
@@ -257,15 +301,28 @@ button {
         @include('components.header')
         <!-- Start of Main -->
         <main class="main">
-            <nav class="breadcrumb-nav" style="border-bottom: 1px solid #eee;margin-bottom:50px;">
+            <nav class="breadcrumb-nav" style="border-bottom: 1px solid #eee;margin-bottom:5px;">
                 <div class="container">
                     <ul class="breadcrumb bb-no">
                         <li><a href="{{ URL::to('/') }}">Home</a></li>
                         <li><a href="javascript:void(0);">Vendor</a></li>
                         <li>{{ $vendor->name }}</li>
+                </ul>
+            </div>
+                    </div>
+            </nav>
+            <div class="container">
+                <ul class="breadcrumb bb-no" style="list-style: none;">
+                        <li><a href="#products-section"><i class="fa fa-building"></i> Products</a></li>
+                        <li><a href="#best-selling-products-section"><i class="fa fa-cube"></i> Best Selling</a></li>
+                        <li><a href="#vendor-album"><i class="fa fa-search"></i> Vendor Album</a></li>
+                        <li><a href="#basic-information"><i class="fa fa-hourglass-half"></i> Basic Information</a></li>
+                        <li><a href="#company-details"><i class="fa fa-signal" id="products-section"></i> Company Details</a></li>
+                        <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li>
                     </ul>
                 </div>
-            </nav>
+                <br>
+
             <!-- End of Breadcrumb-nav -->
             {{-- <div class="slider-container">
                 <div class="slider-images">
@@ -289,49 +346,32 @@ button {
                     @endif
                 </div>
             </div> --}}
-<div class="row"><br></div>
             <div class="slider-container">
                 <div class="slider-images">
                     <!-- First image -->
                     @if ($vendor->banner_image1 != null)
-                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image1)}}" alt="Image 1">
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image1)}}" alt="Slider 1">
                     @else
                     <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img1">
                     @endif
 
                     <!-- Second image -->
                     @if ($vendor->banner_image2 != null)
-                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image2)}}" alt="Image 2">
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image2)}}" alt="Slider 2">
                     @else
                     <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img2">
                     @endif
 
                     <!-- Third image -->
                     @if ($vendor->banner_image3 != null)
-                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image3)}}" alt="Image 3">
+                    <img src="{{ URL::asset('root/upload/vendor-banners/'.$vendor->banner_image3)}}" alt="Slider 3">
                     @else
                     <img src="{{ URL::asset('root/upload/vendor-banners/slide-1.jpg') }}" alt="" class="slider-img3">
                     @endif
-                    <div class="prev-option"> < </div>
+                    <div class="prev-option"> < </div>&NonBreakingSpace;&NonBreakingSpace;&NonBreakingSpace;
                     <div class="next-option"> > </div>
-                    <!-- Transparent overlay -->
-                    <div class="transparent-div">
-                    <div class="row overlay">
-                        <div class="col-lg-3 col-md-3 col-sm-3">
-                            <ul class="list-group">
-                                <li><a href="#products-section"><i class="fa fa-building"></i> Products</a></li>
-                                <li><a href="#best-selling-products-section"><i class="fa fa-cube"></i> Best Selling</a></li>
-                                <li><a href="#vendor-album"><i class="fa fa-search"></i> Vendor Album</a></li>
-                                <li><a href="#basic-information"><i class="fa fa-hourglass-half"></i> Basic Information</a></li>
-                                <li><a href="#company-details"><i class="fa fa-signal" id="products-section"></i> Company Details</a></li>
-                                <li><a href="#vendor-contact-form-section"><i class="fa fa-gift"></i> Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </div>
             </div>
-
 <br>
 {{-- <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-3">
@@ -370,7 +410,7 @@ button {
                         </div>
                             </div>--}}
                 <!-- End Dropdown Section -->
-            </div>
+            {{-- </div> --}}
             <!-- Dropdown & Products Section -->
             <br><br>
             <div class="page-content mb-12">
@@ -1198,22 +1238,66 @@ button {
                         <h3 class="display-3 mt-5">VENDOR ALBUM</h3>
                     </div>
                     <div class="col-lg-12 col-md-12 col-sm-12">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12" style="height: 600px;overflow-y:scroll;">
+                        <d class="row">
+                        {{-- <div class="col-lg-12 col-md-12 col-sm-12" style="height: 600px;overflow-y:scroll;">
                                 <div class="row">
                                     @foreach ($vendorAlbums as $value)
                                     <div class="col-lg-2 col-md-2 col-sm-12">
                                         <div class="product-wrap">
                                             <div class="product text-center">
                                                 <figure class="product-media">
-                                                    <img src="{{ URL::asset('root/upload/vendor-album/' . $value->image) }}" alt="Vendor ALbum" />
+                                                    <img class="zoomable-image" src="{{ URL::asset('root/upload/vendor-album/' . $value->image) }}" alt="Vendor ALbum" />
                                                 </figure>
                                             </div>
                                         </div>
                                     </div>
                                     @endforeach
                                 </div>
+                            </div> --}}
+                            {{-- <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12" style="height: 600px;overflow-y:scroll;">
+                                        <div class="row">
+                                            @foreach ($vendorAlbums as $value)
+                                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                                <div class="product-wrap">
+                                                    <div class="product text-center">
+                                                        <figure class="product-media">
+                                                            <img class="zoomable-image popup-image" src="{{URL::asset('root/upload/vendor-album/' . $value->image) }}" alt="Vendor ALbum" />
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        {{-- style="height: 600px; overflow-y:scroll;" --}}
+                                        <div class="row">
+                                            @foreach ($vendorAlbums as $value)
+                                            <div class="col-lg-2 col-md-2 col-sm-12">
+                                                <div class="product-wrap">
+                                                    <div class="product text-center">
+                                                        <figure class="product-media">
+                                                            <!-- Assign a unique ID to each image based on the image ID -->
+                                                            <a class="popup-image" href="{{URL::asset('root/upload/vendor-album/' . $value->image) }}" data-image-id="{{ $value->id }}">
+                                                                <img class="zoomable-image" src="{{URL::asset('root/upload/vendor-album/' . $value->image) }}" alt="Vendor Album" />
+                                                            </a>
+                                                        </figure>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+
+
                             <div class="row mt-5" id="basic-information">
                                 <div class="col-lg-12 col-md-12 col-sm-12">
                                     <hr>
