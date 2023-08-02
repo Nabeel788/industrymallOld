@@ -83,7 +83,7 @@ class ServicesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'description' => 'required',
-            'image' => 'mimes:png,jpg,jpeg|max:2048'
+            'image' => 'mimes:png,jpg,jpeg,jfif|max:2048'
         ]);
         $edit1 = Services::findOrFail($id);
         $edit = Services::findOrFail($id);
@@ -124,7 +124,6 @@ class ServicesController extends Controller
             $edit->image = $fileName;
             $edit->save();
         }
-
         return redirect('our-services')->with(Toastr::success('Service Updated Successfully!'));
     }
 
@@ -138,7 +137,7 @@ class ServicesController extends Controller
 
         return redirect()->back()->with(Toastr::success('Service Deleted Successfully!'));
     }
-    
+
     public function uploadImage(Request $request){
          $filename = $request->file('file')->getClientOriginalName();
 
