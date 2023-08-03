@@ -51,7 +51,8 @@
         #main-tabs{
             padding: 20px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            border: 1px solid #eee;
+            background-color: rgb(206, 199, 199);
+            border: 1px solid: blue;
             <?php $height = 0; ?>
             @foreach($services as $key=>$value)
                 @if($key==0)
@@ -62,12 +63,15 @@
             height: {{ $height }}px;
             @endforeach
         }
-        #main-tabs .nav-item{
-            border: 1px solid #eee;
+         #main-tabs .nav-item{
+            border: 1px solid: blue;
+            color: black;
         }
         #main-tabs .nav-item:hover{
-            background: #eee;
+            background-color: rgb(1, 1, 46);
+            color: white;
             transition: .3s ease-in;
+            z-index: 1;
         }
         #main-tabs .nav-item .nav-link{
             padding-left: 10px;
@@ -81,6 +85,7 @@
         .service-description{
             font-family: sans-serif;
         }
+
     </style>
 </head>
 
@@ -118,8 +123,8 @@
                                 @if($key==0)
                                 <li class="nav-item">
                                     <a href="#service-{{ $key }}" class="nav-link active">
-                                        <i class="w-icon-angle-right" style="font-size: 13px;"></i>
-                                        <i class="w-icon-angle-right" style="margin-left: -13px;font-size: 13px;"></i>
+                                        <i class="w-icon-angle-right style="font-size: 13px;"></i>
+                                        <i class="w-icon-angle-right"  style="margin-left: -13px;font-size: 13px;"></i>
                                         <span style="position: relative;">{{ $value->title }}</span>
                                     </a>
                                 </li>
@@ -142,8 +147,9 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <h3 class="service-title">{{ $value->title }}</h3>
-                                                <img src="{{ URL::asset('root/upload/services/big/'.$value->image) }}" width="100%" id="service-img" alt="">
-                                            </div>
+                                                /* <img src="{{ URL::asset('root/upload/services/big/'.$value->image) }}" width="100%" id="service-img" alt=""> */
+                                                <img src="{{ URL('root/public/root/upload/services/big'.$value->image) }}" width="100%" id="service-img" alt="">
+                                                </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 mt-4 service-description">
                                                 {!! $value->description !!}
                                             </div>

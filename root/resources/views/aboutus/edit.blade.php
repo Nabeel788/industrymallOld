@@ -20,6 +20,7 @@
                             'action' => ['App\Http\Controllers\AboutUsController@update', $edit->id],
                             'class' => 'form-horizontal',
                         ]) !!}
+                        @csrf
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">

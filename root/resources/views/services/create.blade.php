@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="{{ URL::asset('website-assets/css/toastr.min.css') }}">
 @stop
 @section('contents')
-
     <section class="content-header"></section>
-
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -26,6 +24,7 @@
                             'class' => 'form-horizontal',
                             'enctype' => 'multipart/form-data',
                         ]) !!}
+                        @csrf
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -42,7 +41,7 @@
                                     @enderror
                                     </div>
                                 </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="col-lg-4 col-md-4 col-sm-4">
                                     <div class="form-group">
                                         <label for="image">Image</label>
                                         <input type="file" name="image" id="image" class="form-control" required>
@@ -123,5 +122,5 @@
     });
 </script>
 
-   
+
 @stop
