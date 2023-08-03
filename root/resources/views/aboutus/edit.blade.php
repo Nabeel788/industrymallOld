@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE
+html>
 @extends('app')
 @section('contents')
     <title>Edit About Us</title>

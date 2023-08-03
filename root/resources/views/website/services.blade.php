@@ -45,13 +45,22 @@
     <!-- Default CSS -->
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('website-assets/css/style.min.css') }}">
     <style>
+      /* Assuming the CSS file is in 'root\public\styles.css' */
+.page-header{
+    background-image: url('img/for services.jfif'); /* Adjust the path based on the location of the CSS file */
+    background-repeat: no-repeat;
+    width: 60%;
+    background-size: cover;
+   justify-content: center;
+   margin-left: 450px;
+}
         .position-sticky{
             position: sticky!important;
         }
         #main-tabs{
             padding: 20px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            background-color: rgb(206, 199, 199);
+            background-color: while;
             border: 1px solid: blue;
             <?php $height = 0; ?>
             @foreach($services as $key=>$value)
@@ -63,7 +72,7 @@
             height: {{ $height }}px;
             @endforeach
         }
-         #main-tabs .nav-item{
+        #main-tabs .nav-item{
             border: 1px solid: blue;
             color: black;
         }
@@ -75,6 +84,13 @@
         }
         #main-tabs .nav-item .nav-link{
             padding-left: 10px;
+        }
+        #main-tabs .nav-item .nav-link:hover{
+            color:white;
+        }
+        #main-tabs .nav-item .nav-link.active{
+        background-color: rgb(1, 1, 46);
+        color:white;
         }
         .tab-pane{
             margin-top: 0px;
@@ -93,17 +109,7 @@
     <div class="page-wrapper">
         @include('components.header')
 
-        <!-- Start of Main -->
-        <main class="main">
-            <!-- Start of Page Header -->
-            <div class="page-header">
-                <div class="container">
-                    <h1 class="page-title mb-0">Services</h1>
-                </div>
-            </div>
-            <!-- End of Page Header -->
-
-            <!-- Start of Breadcrumb -->
+        <!-- Start of Breadcrumb -->
             <nav class="breadcrumb-nav">
                 <div class="container">
                     <ul class="breadcrumb">
@@ -113,9 +119,15 @@
                 </div>
             </nav>
             <!-- End of Breadcrumb -->
-
+        <!-- Start of Main -->
+        <main class="main">
+            <!-- Start of Page Header -->
+            <div class="page-header">
+                    <h1 class="page-title text-white" style="text-align: left;">Services</h1>
+            <!-- End of Page Header -->
+            </div>
             <!-- Start of PageContent -->
-            <div class="page-content pt-2">
+            <div class="page-content">
                 <div class="container">
                     <div class="tab tab-vertical row gutter-lg position-sticky">
                         <ul class="nav nav-tabs mb-6" role="tablist" id="main-tabs">
@@ -147,9 +159,9 @@
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <h3 class="service-title">{{ $value->title }}</h3>
-                                                /* <img src="{{ URL::asset('root/upload/services/big/'.$value->image) }}" width="100%" id="service-img" alt=""> */
-                                                <img src="{{ URL('root/public/root/upload/services/big'.$value->image) }}" width="100%" id="service-img" alt="">
-                                                </div>
+                                                 <img src="{{ URL::asset('root/upload/services/big/'.$value->image) }}" width="100%" id="service-img" alt="">
+
+                                                 </div>
                                             <div class="col-lg-12 col-md-12 col-sm-12 mt-4 service-description">
                                                 {!! $value->description !!}
                                             </div>
@@ -158,7 +170,7 @@
 
                                     </div>
                                 @else
-                                    <div class="tab-pane in" id="service-{{ $key }}">
+                                    <div class="tab-pane" id="service-{{ $key }}">
                                         <div class="row">
                                             <div class="col-lg-12 col-md-12 col-sm-12">
                                                 <h3 class="service-title">{{ $value->title }}</h3>
@@ -178,11 +190,8 @@
                 </div>
             </div>
             <!-- End of PageContent -->
-        </main>
-        <!-- End of Main -->
-
+</main>
         @include('components.footer')
-    </div>
     <!-- End of Page Wrapper -->
 
     @include('components.sticky-footer')
