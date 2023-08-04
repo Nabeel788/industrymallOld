@@ -451,7 +451,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                     onclick="document.getElementById('price-range-form').submit();">Go</a>
                                             </form>
 
-                                            <div class="priceSlider">
+                                            <div class="price-slider">
                                                 {{-- <h1>Range Slider</h1>
                                                 <p>Move Slider to choose the price range:</p> --}}
                                                 <div class="min-max" style="display: none;">

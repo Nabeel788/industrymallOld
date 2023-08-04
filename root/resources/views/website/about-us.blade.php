@@ -130,7 +130,7 @@
             animation: animate 1s 1s cubic-bezier(1, 0, 0.5, 1) forwards;
         }
 
-        {!! $skillsCss !!} 
+        {!! $skillsCss !!}
         .progress-line span::before {
             position: absolute;
             content: "";
@@ -144,7 +144,7 @@
             border-top-color: #000;
             opacity: 0;
             animation: showText2 0.5s 1.5s linear forwards;
-         
+
         }
 
         .progress-line span::after {
@@ -168,9 +168,9 @@
         }
 
         {!! $skillsCss2 !!}
-     
+
     </style>
-  
+
 </head>
 
 <body class="about-us">
@@ -203,26 +203,17 @@
                     <section class="pb-10">
                         <div class="container pt-10 mb-9">
                          <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                       {!! $about[0]->mission !!}       
-                                </div>   
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                       {!! $about[0]->stories !!}
-                                </div>   
+                          <div class="col-lg-6 col-md-6 col-sm-12">  {!! $about[0]->mission !!}</div>
+                           <div class="col-lg-6 col-md-6 col-sm-12">{!! $about[0]->stories !!}</div>
+                           <div class="col-lg-6 col-md-6 col-sm-12"> {!! $about[0]->approach !!}</div>
+                        <div class="col-lg-6 col-md-6 col-sm-12"> {!! $about[0]->philosophy !!}</div>
                         </div>
-                      
                         </div>
-                        <div class="container pt-10 mb-9">
+                        {{-- <div class="container pt-10 mb-9">
                          <div class="row">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    {!! $about[0]->approach !!}       
-                                </div>   
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    {!! $about[0]->philosophy !!}
-                                </div>   
+
                         </div>
-                      
-                        </div>
+                        </div> --}}
                     </section>
                 </div>
                 {{-- end of about content --}}
@@ -275,12 +266,10 @@
                             </div>
                             <div class="col-1"></div>
                         </div>
-
                     </div>
                 </div>
             </section>
-
-            <section class="count-section pt-3 pb-3" style="background: black;">
+            {{-- <section class="count-section pt-3 pb-3" style="background: black;">
                 <div class="swiper-container swiper-theme swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
                     data-swiper-options="{
                     'slidesPerView': 1,
@@ -347,13 +336,13 @@
                             tabindex="0" role="button" aria-label="Go to slide 1"></span></div>
                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                 </div>
-            </section>
-            <section class="customer-service mb-7 bg-white">
+            </section> --}}
+            {{-- <section class="customer-service mb-7 bg-white">
                 <div class="row align-items-center">
                     <div class="col-md-6 pr-lg-8 mb-8">
-                        <div class="row">
-                            <div class="col-1"></div>
-                            {{-- <div class="col-10">
+                        <div class="row"> --}}
+                            {{-- <div class="col-1"></div>
+                            <div class="col-10">
                                 <h2 class="title aboutus-title text-left">About Us</h2>
                                 <p style="margin-top: -10px;">Part of your success</p>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ac vulputate dolor.
@@ -369,19 +358,18 @@
                                 <button type="button" class="btn btn-secondary btn-ellipse about-read-more-btn">Read
                                     More</button>
                             </div> --}}
-                            <div class="col-1"></div>
+                            {{-- <div class="col-1"></div>
                         </div>
                     </div>
-                    <div class="col-md-6 mb-8">
+                    <div class="col-md-6 mb-8"></div>
                         {{-- <figure class="br-lg" style="border-radius: 0px!important;">
                             <img src="{{ URL::asset('website-assets/images/pages/about_us/2.jpg') }}" alt="Banner"
                                 width="100%" height="500" style="background-color: #CECECC;">
-                        </figure> --}}
-                    </div>
-                </div>
-            </section>
+                        </figure>
 
-            <section class="pt-10 pb-10 parallax parallax-testimonial-section"
+                </div> --}}
+            </section>
+            {{-- <section class="pt-10 pb-10 parallax parallax-testimonial-section"
                 data-parallax-options="{'speed': 10, 'parallaxHeight': '200%', 'offset': 0}"
                 data-image-src="{{ URL::asset('website-assets/images/banner.jpg') }}"
                 style="position: relative; overflow: hidden;margin-top:-80px;margin-bottom:-20px;">
@@ -415,10 +403,10 @@
                             @endforeach
                         </div>
                         <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
-                        {{-- <span class="show-code">&lt;/&gt;</span> --}}
+                        {{-- <span class="show-code">&lt;/&gt;</span>
                     </div>
                 </div>
-            </section>
+            </section> --}}
 
             {{-- <section class="count-section mb-10">
                 <div class="swiper-container swiper-theme swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events"
@@ -515,7 +503,6 @@
                     </div>
                 </div>
             </section>
-
             {{-- <section class="member-section mt-10 pt-9 mb-10 pb-4">
                 <div class="container">
                     <h4 class="title title-center mb-3">Meet Our Leaders</h4>
@@ -608,10 +595,8 @@
             </section> --}}
         </main>
         <!-- End of Main -->
-
         @include('components.about-footer')
     </div>
-
     @include('components.sticky-footer')
 
     <!-- Plugin JS File -->
