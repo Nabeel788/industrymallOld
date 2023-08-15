@@ -19,6 +19,7 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::User()->role == 'Admin') {
+        
             $totalOrders = Order::count();
             $PendingOrders = Order::where('status', '!=', 'Your order has been delivered')->count();
             $CompleteOrders = Order::where('status', '=', 'Your order has been delivered')->count();
