@@ -17,6 +17,9 @@
 
     <!-- WebFont.js -->
     <style>
+        .lineh{
+            line-height : 1%;
+        }
          .imagee
     {
         position: relative;
@@ -38,6 +41,7 @@
     padding-right:10px !important;
     border: 1px solid #ccc;
 }
+
     </style>
     <script>
         WebFontConfig = {
@@ -224,7 +228,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-3 col-md-3 col-sm-12">
-                        <h2 class="title text-left ls-normal mt-10 pt-1 appear-animate" title="@if($category1){{ $category1->name }}@endif">
+                        <h2  class="title text-left ls-normal mt-10 pt-1 appear-animate" title="@if($category1){{ $category1->name }}@endif">
                             @if($category1)
                             {{ substr($category1->name,0,57) }}...
                             @endif
@@ -232,37 +236,57 @@
                         {{-- <hr class="banner-divider bg-dark mb-2" style="margin-top: -10px;"> --}}
                     </div>
                     <div class="col-lg-8 col-md-8 col-sm-10">
-                        <div class="tab tab-nav-boxed tab-nav-outline appear-animate">
-                            <ul class="nav nav-tabs justify-content-left" style="margin-top:45px;"
-                                role="tablist">
+                    <div class="  appear-animate"
+                            >
+                
+                        <div class="  tab tab-nav-boxed row  cols-1 tab-nav-outline appear-animate ">
+                        
+                        <ul class="swiper-container swiper-theme nav nav-tabs   justify-content-left" style="margin-top:45px;"
+                                role="tablist"  data-swiper-options="{
+                                'slidesPerView': 1,
+                    
+                    'breakpoints': {
+                        '1200': {
+                            'slidesPerView': 4
+                        }
+                    }
+                }">
+                                <div class="swiper-wrapper">
                                 @php $tab1=0; @endphp
                                 @foreach ($SubcategoriesList1 as $value)
+                                
                                     @if ($tab1 == 0)
-                                        <li class="nav-item mr-2 mb-2">
-                                            <a class="nav-link active br-sm font-size-sm ls-normal" title="{{ $value->name }}"
+                                        <li class="nav-item  mr-2 mb-2  swiper-slide">
+                                            
+                                            <a class="  nav-link active  br-sm font-size-sm ls-normal" title="{{ $value->name }}"
                                                 href="#tab1-{{ $tab1 }}">
                                                 @if($value->name)
-                                                {{ substr($value->name, 0, 21) }}...
+                                                {{ substr($value->name, 0, 30) }}...
                                                 @endif
                                                 </a>
+                                                
                                         </li>
                                     @else
-                                        <li class="nav-item mr-2 mb-2">
+                                        <li class="nav-item mr-2 mb-2  swiper-slide">
+                                        
                                             <a class="nav-link br-sm font-size-sm ls-normal" title="{{ $value->name }}"
                                                 href="#tab1-{{ $tab1 }}">
                                                 @if($value->name)
-                                                {{ substr($value->name, 0, 21) }}...
+                                                {{ substr($value->name, 0, 22) }}...
                                                 @endif
                                                 </a>
+                                                
                                         </li>
                                     @endif
                                     @php $tab1++; @endphp
                                 @endforeach
-
+                                </div>
                             </ul>
-
-                        </div>
+                            
+                        
                     </div>
+                </div>
+            </div>
                     <div class="col-lg-1 col-md-1 col-sm-1 appear-animate" style="margin-top:55px;padding-right:10px;padding-left:1px;text-align:right">
                         <a href="{{ URL::to('/shop/cat/'.$homeSettings->category1) }}" class="font-size-normal font-weight-bold ls-25 mb-8">More
                             Products <i class="w-icon-long-arrow-right" style="position: relative;top:2px;align-items:right;"></i></a>
@@ -275,45 +299,56 @@
                         @if ($tab1 == 0)
                             <div class="tab-pane active pt-0" id="tab1-{{ $tab1 }}">
                                 <div class="row">
-                                    <div class="col-lg-3 col-sm-4 mb-4">
+                                    <div style="max-width: 18%;" class="col-lg-3 col-sm-4 mb-4">
                                         <div class="banner h-100 br-sm"
                                             style="background-image: url({{ $homeSettings->category1_image }});
                                             background-color: #ebeced;">
                                         </div>
                                     </div>
                                     <!-- End of Banner -->
-                                    <div class="col-lg-9 col-sm-8">
+                                    <div style="max-width: 82%;" class="col-lg-9 col-sm-8">
                                         <div class="swiper-container swiper-theme"
                                             data-swiper-options="{
                                             'spaceBetween': 20,
                                             'slidesPerView': 1,
                                             'breakpoints': {
-                                                '992': {
+                                                
+                                                
+                                                '670': {
                                                     'slidesPerView': 2
                                                 },
-                                                '1200': {
+                                                
+
+                                                '900': {
                                                     'slidesPerView': 3
+                                                },
+                                                '1200': {
+                                                    'slidesPerView': 4
                                                 }
+                                                
                                             }
                                         }">
+
+                                            
                                             <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                                                 @php $n=0; @endphp
                                                 @foreach ($products as $key => $value)
-
+                                                
                                                     @if ($subcategory->id == $value->subcategory_id )
                                                         {{-- <h3>{{ $value->id }}</h3> --}}
-                                                        <div class="swiper-slide product-col">
+                                                        <div class="swiper-slide product-col" style="width: 220.25px; margin-right: 20px;">
                                                             <div class="product-wrap"
                                                                 style="border:1px solid gainsboro; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;padding:10px;">
-                                                                <div class="product text-center">
-                                                                    <figure class="product-media">
+                                                                <div class="product text-center" style="margin-top:20px">
+                                                                
+                                                                <div class="product-media" style="width: 210px;height: 150px;margin: 12px;">
                                                                         <a
                                                                             href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">
                                                                             @if ($value->product_image)
-                                                                            <div style="position: relative; left: 0; top: 0;">
-                                                                                <img src="{{ URL::asset($value->product_image->url) }}" class="imagee" style="max-height:290px;min-height:290px"
+                                                                            <div style="height: 166px;position: relative;left: 0;top: 0px;margin-block-start: -23px;margin-block-end: -50px;">
+                                                                                <img src="{{ URL::asset($value->product_image->url) }}" class="imagee" style="display: inline; height: 166px;margin-left: 0px;width: 166px;min-height: 166px;max-height: 166px;"
                                                                                     alt="Product" />
-                                                                                <img src="{{ URL::asset('root/upload/logo/water.png') }}" class="water"
+                                                                                <img src="{{ URL::asset('root/upload/logo/water.png') }}" class="water" style="width: 210px;height: 166px; display: inline;"
                                                                                     alt="Product" />
                                                                                 </div>
                                                                             @else
@@ -321,21 +356,31 @@
                                                                                     alt="Product" />
                                                                             @endif
                                                                         </a>
-                                                                        <hr>
-                                                                    </figure>
+                                                                    </div>
+                                                                    
+                                                                    <hr style="margin-top:20px;">
+
                                                                     <div class="product-details">
+
                                                                         <p class="text-left"
-                                                                            style="margin-top:-25px;">
+                                                                            style="margin-top:-10px; margin-bottom:15px; line-height:1px;">
                                                                             <a style="color: black;font-size:20px;font-weight: bold;"
                                                                                 href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
                                                                         </p>
                                                                         <p class="text-left"
-                                                                            style="margin-top: -10px;font-size:12px;">
+                                                                            style="margin-top: -10px;font-size:14px;">
                                                                             {{ $value->name }}</p>
-                                                                        <div
-                                                                            style="color: black;font-size:10px;text-align: left!important;">
-                                                                            {!! Str::words($value->description, 20) !!}</div>
-                                                                        <div class="text-left" style="">
+                                                                            <div   style="font-family: auto; line-height: 1.3; color: black; font-size: 12px; text-align:justify !important;">
+                                                                            
+                                                                            {{ Str::words(strip_tags($value->description), 2) }}...<a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                                style="font-size: 12px;">View Details
+                                                                                <i class="w-icon-angle-righ"
+                                                                                    style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                                <i class="w-icon-angle-righ"
+                                                                                    style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                            </a>
+                                                                            </div>
+                                                                        <!-- <div class="text-left" style="">
                                                                             <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
                                                                                 style="font-size: 12px;">View Details
                                                                                 <i class="w-icon-angle-righ"
@@ -343,7 +388,7 @@
                                                                                 <i class="w-icon-angle-righ"
                                                                                     style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
                                                                             </a>
-                                                                        </div>
+                                                                        </div> -->
                                                                         <div class="old-price text-right">
                                                                             <p
                                                                                 style="font-size: 15px;margin-bottom:20px;">
@@ -367,7 +412,7 @@
                                                                                 id="amount2{{ $key }}"
                                                                                 value="{{ $value->new_price }}">
 
-                                                                            <select class="to"
+                                                                            <select style="font-size:12px;" class="to"
                                                                                 id="currencyChange{{ $key }}">
                                                                                 <option value="USD" selected>USD
                                                                                 </option>
@@ -450,8 +495,8 @@
                                                                         </script>
                                                                         <div class="row" style="">
                                                                             <div class="col-8 text-left"
-                                                                                style="margin-top: -80px;">
-                                                                                <span><i class="w-icon-map-marker"></i>
+                                                                                style="margin-top: -87px;">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-map-marker"></i>
                                                                                     <b>Location</b></span>
                                                                                 <p
                                                                                     style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
@@ -466,50 +511,10 @@
                                                                                         @endforeach
                                                                                     @endif
                                                                                 </p>
-                                                                                <div style="margin-top:-10px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Brand</b></span>
-                                                                                    <div>
-                                                                                        &emsp;&nbsp;<img
-                                                                                            src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 80px;margin-button:auto;"
-                                                                                            alt="brand logo">
-                                                                                    </div>
-                                                                                </div>
+                                                                                
 
-                                                                            </div>
-                                                                            <div class="col-4 text-right">
-                                                                                @php
-                                                                                    $stockIn = 0;
-                                                                                    $stockOut = 0;
-                                                                                @endphp
-                                                                                @if ($value->stock)
-                                                                                    @foreach ($value->stock as $stock)
-                                                                                        @php
-                                                                                            $stockIn += $stock->qty_in;
-                                                                                            $stockOut += $stock->qty_out;
-                                                                                        @endphp
-                                                                                    @endforeach
-                                                                                @endif
-                                                                                @if(($stockIn-$stockOut)<=0)
-                                                                                    <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
-                                                                                @else
-                                                                                    <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
-                                                                                @endif
-
-                                                                                @if ($value->biller->image!=null)
-                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
-                                                                                @else
-                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
-                                                                                @endif
-                                                                            </div>
-                                                                            
-                                        
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <div class="col-7 text-left">
-                                                                                <div style="margin-top: -30px;">
-                                                                                    <span><i class="w-icon-sale"></i>
+                                                                                <div style="margin-top: -10px;">
+                                                                                    <span style="font-size: 12px;"><i class="w-icon-sale"></i>
                                                                                         <b>Condition</b></span>
                                                                                     <div class="mt-2">
                                                                                         @if ($value->conditions)
@@ -576,12 +581,56 @@
                                                                                                         </label>
                                                                                                     @endif
                                                                                                 @endif
-                                                                                            @endforeach
+                                                                                            @endforeach  
                                                                                         @endif
+                                                                                        
+                                                                                    </div>
+                                                                                </div>
 
+                                                                            </div>
+                                                                            <div class="col-4 text-right " style="margin-top:5px;">
+                                                                                @php
+                                                                                    $stockIn = 0;
+                                                                                    $stockOut = 0;
+                                                                                @endphp
+                                                                                @if ($value->stock)
+                                                                                    @foreach ($value->stock as $stock)
+                                                                                        @php
+                                                                                            $stockIn += $stock->qty_in;
+                                                                                            $stockOut += $stock->qty_out;
+                                                                                        @endphp
+                                                                                    @endforeach
+                                                                                @endif
+                                                                                @if(($stockIn-$stockOut)<=0)
+                                                                                    <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
+                                                                                @else
+                                                                                    <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                                @endif
+
+                                                                                @if ($value->biller->image!=null)
+                                                                                <!-- &emsp;&nbsp; -->
+                                                                                <a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                                @else
+                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
+                                                                                @endif
+                                                                            </div>
+                                                                            
+                                        
+                                                                        </div>
+                                                                        <div class="row">
+                                                                            <div class="col-7 text-left">
+                                                                            <div style="margin-top:-51px; ">
+                                                                                    <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                        <b>Brand</b></span>
+                                                                                    <div>
+                                                                                        <img
+                                                                                            src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
+                                                                                            style="width: 100px;margin-button:auto;"
+                                                                                            alt="brand logo">
                                                                                     </div>
                                                                                 </div>
                                                                             </div>
+                                                                            
 
                                                                             <div class="col-5 text-right">
                                                                                 <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
@@ -594,13 +643,15 @@
                                                                             <div class="col-7 text-left">
                                                                                 <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
                                                                                     class="btn btn-sm btn-primary btn-block"
-                                                                                    style="margin-top: 10px;"><i
+                                                                                    style="margin-top: 10px;">
+                                                                                    <span style="margin-left: -2px;">
+                                                                                    <i
                                                                                         class="w-icon-cart"></i>
                                                                                     View
-                                                                                    Details</a>
+                                                                                    Details </span></a>
                                                                             </div>
-                                                                            <div class="col-5 text-right">
-                                                                                @php
+                                                                            <div class="col-5  text-right">
+                                                                                @php 
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -612,12 +663,12 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-
+                                                                                
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
                                                                                     {{-- <p>{{ $count }}</p> --}}
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
+                                                                                    <div class="ratings-container"style="margin-left:52px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $stars }}</p> --}}
                                                                                             <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
@@ -626,14 +677,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
+                                                                                @else  
                                                                                 <div class="col-5 text-right">
-
+                                                                                    
                                                                                     <br>
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
+                                                                                    <div class="ratings-container"style="margin-left:52px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-
+                                                                                            
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -750,7 +801,7 @@
                                                                             {{ $value->name }}</p>
                                                                         <div
                                                                             style="color: black;font-size:10px;text-align: left!important;">
-                                                                            {!! Str::words($value->description, 35) !!}</div>
+                                                                            {!! Str::words($value->description,6) !!}</div>
                                                                         <div class="text-left" style="">
                                                                             <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
                                                                                 style="font-size: 12px;">View Details
@@ -1003,7 +1054,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php
+                                                                                @php 
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -1015,7 +1066,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-
+                                                                                
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -1029,14 +1080,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
+                                                                                @else  
                                                                                 <div class="col-5 text-right">
-
+                                                                                    
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-
+                                                                                            
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -1097,10 +1148,18 @@
                     @endforeach
                 </div>
                 <!-- End of Tab Content -->
+                    
+                
+                
+
+                <!-- start of hot product -->
+
+                
+
+                <!-- end of hot product -->
 
 
-
-                <div class="row">
+                <div class="row " style="margin-top: -64px;" >
                     <div class="col-lg-3 col-md-3 col-sm-12">
                         <h2 class="title text-left ls-normal mt-10 pt-1 appear-animate" title="@if($category2){{ $category2->name }}@endif">@if($category2){{ substr($category2->name,0,57) }}...@endif</h2>
                         {{-- <hr class="banner-divider bg-dark mb-2" style="margin-top: -10px;"> --}}
@@ -1135,49 +1194,64 @@
                     </div>
                 </div>
                 <!-- End of Tab -->
+                
                 <div class="tab-content product-wrapper appear-animate">
-                    @php $tab2=0; @endphp
+                    @php $tab1=0; @endphp
                     @foreach ($SubcategoriesList2 as $subcategory)
-                        @if ($tab2 == 0)
-                            <div class="tab-pane active pt-0" id="tab2-{{ $tab2 }}">
+                        @if ($tab1 == 0)
+                            <div class="tab-pane active pt-0" id="tab1-{{ $tab1 }}">
                                 <div class="row">
-                                    <div class="col-lg-3 col-sm-4 mb-4">
+                                    <div style="max-width: 18%;" class="col-lg-3 col-sm-4 mb-4">
                                         <div class="banner h-100 br-sm"
                                             style="background-image: url({{ $homeSettings->category2_image }});
                                             background-color: #ebeced;">
                                         </div>
                                     </div>
                                     <!-- End of Banner -->
-                                    <div class="col-lg-9 col-sm-8">
+                                    <div style="max-width: 82%;" class="col-lg-9 col-sm-8">
                                         <div class="swiper-container swiper-theme"
                                             data-swiper-options="{
                                             'spaceBetween': 20,
                                             'slidesPerView': 1,
                                             'breakpoints': {
-                                                '992': {
+                                                
+                                                
+                                                '670': {
                                                     'slidesPerView': 2
                                                 },
-                                                '1200': {
+                                                
+
+                                                '900': {
                                                     'slidesPerView': 3
+                                                },
+                                                '1200': {
+                                                    'slidesPerView': 4
                                                 }
+                                                
                                             }
                                         }">
+
+                                            
                                             <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                                                 @php $n2=0; @endphp
+                                                
                                                 @foreach ($products as $key => $value)
-                                                    @if ($subcategory->id == $value->subcategory_id)
-                                                        <div class="swiper-slide product-col">
+                                                
+                                                @if ($subcategory->id == $value->subcategory_id )
+                                                    {{-- <h3>{{ $value->id }}</h3> --}}
+                                                    <div class="swiper-slide product-col" style="width: 220.25px; margin-right: 20px;">
                                                             <div class="product-wrap"
                                                                 style="border:1px solid gainsboro; box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;padding:10px;">
-                                                                <div class="product text-center">
-                                                                    <figure class="product-media">
+                                                                <div class="product text-center" style="margin-top:20px">
+                                                                
+                                                                <div class="product-media" style="width: 210px;height: 150px;margin: 12px;">
                                                                         <a
                                                                             href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">
                                                                             @if ($value->product_image)
-                                                                            <div style="position: relative; left: 0; top: 0;">
-                                                                                <img src="{{ URL::asset($value->product_image->url) }}" class="imagee" style="max-height:290px;min-height:290px"
+                                                                            <div style="height: 166px;position: relative;left: 0;top: 0px;margin-block-start: -23px;margin-block-end: -50px;">
+                                                                                <img src="{{ URL::asset($value->product_image->url) }}" class="imagee" style="display: inline; height: 166px;margin-left: 0px;width: 166px;min-height: 166px;max-height: 166px;"
                                                                                     alt="Product" />
-                                                                                <img src="{{ URL::asset('root/upload/logo/water.png') }}" class="water"
+                                                                                <img src="{{ URL::asset('root/upload/logo/water.png') }}" class="water" style="width: 210px;height: 166px; display: inline;"
                                                                                     alt="Product" />
                                                                                 </div>
                                                                             @else
@@ -1185,351 +1259,370 @@
                                                                                     alt="Product" />
                                                                             @endif
                                                                         </a>
-                                                                        <hr>
-                                                                    </figure>
-                                                                    <div class="product-details">
-                                                                        <p class="text-left"
-                                                                            style="margin-top:-25px;">
-                                                                            <a style="color: black;font-size:20px;font-weight: bold;"
-                                                                                href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+                                                                    </div>
+                                                                
+                                                                    <hr style="margin-top:20px;">
+
+                                                                <div class="product-details">
+
+                                                                    <p class="text-left "
+                                                                        style="margin-top:-10px; margin-bottom:15px; line-height:1;" >
+                                                                        <a style="color: black;font-size:20px;font-weight: bold;"
+                                                                            href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+                                                                    </p>
+                                                                    <p class="text-left"
+                                                                        style="margin-top: -10px;font-size:14px; line-height: 15px;">
+                                                                        {{ $value->name }}</p>
+                                                                        <div   style="font-family: auto; line-height: 1.3; color: black; font-size: 12px; text-align:justify !important;">
+                                                                        
+                                                                        {{ Str::words(strip_tags($value->description), 3) }}...<a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                        </div>
+                                                                    <!-- <div class="text-left" style="">
+                                                                        <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                    </div> -->
+                                                                    <div class="old-price text-right">
+                                                                        <p
+                                                                            style="font-size: 15px;margin-bottom:20px;">
+                                                                            <del
+                                                                                id="finalValue2{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
                                                                         </p>
-                                                                        <p class="text-left"
-                                                                            style="margin-top: -10px;font-size:12px;">
-                                                                            {{ $value->name }}</p>
-                                                                        <div
-                                                                            style="color: black;font-size:10px;text-align: left!important;">
-                                                                            {!! Str::words($value->description, 35) !!}</div>
-                                                                        <div class="text-left" style="">
-                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                style="font-size: 12px;">View Details
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="old-price text-right">
-                                                                            <p
-                                                                                style="font-size: 15px;margin-bottom:20px;">
-                                                                                <del
-                                                                                    id="finalValue22{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="sale-price text-right">
-                                                                            <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
-                                                                                id="finalValue222{{ $key }}">
-                                                                                &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
-                                                                            </p>
-                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sale-price text-right">
+                                                                        <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
+                                                                            id="finalValue{{ $key }}">
+                                                                            &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
+                                                                        </p>
+                                                                    </div>
 
-                                                                        <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
-                                                                            class="ml-auto">
-                                                                            <input type="hidden"
-                                                                                id="amount12{{ $key }}"
-                                                                                value="{{ $value->new_sale_price }}">
-                                                                            <input type="hidden" name="price"
-                                                                                id="amount222{{ $key }}"
-                                                                                value="{{ $value->new_price }}">
+                                                                    <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
+                                                                        class="ml-auto">
+                                                                        <input type="hidden"
+                                                                            id="amount1{{ $key }}"
+                                                                            value="{{ $value->new_sale_price }}">
+                                                                        <input type="hidden" name="price"
+                                                                            id="amount2{{ $key }}"
+                                                                            value="{{ $value->new_price }}">
 
-                                                                            <select class="to"
-                                                                                id="currencyChange2{{ $key }}">
-                                                                                <option value="USD" selected>USD
-                                                                                </option>
-                                                                                <option value="AED">AED</option>
-                                                                                <option value="ARS">ARS</option>
-                                                                                <option value="AUD">AUD</option>
-                                                                                <option value="BGN">BGN</option>
-                                                                                <option value="BRL">BRL</option>
-                                                                                <option value="BSD">BSD</option>
-                                                                                <option value="CAD">CAD</option>
-                                                                                <option value="CHF">CHF</option>
-                                                                                <option value="CLP">CLP</option>
-                                                                                <option value="CNY">CNY</option>
-                                                                                <option value="COP">COP</option>
-                                                                                <option value="CZK">CZK</option>
-                                                                                <option value="DKK">DKK</option>
-                                                                                <option value="DOP">DOP</option>
-                                                                                <option value="EGP">EGP</option>
-                                                                                <option value="EUR">EUR</option>
-                                                                                <option value="FJD">FJD</option>
-                                                                                <option value="GBP">GBP</option>
-                                                                                <option value="GTQ">GTQ</option>
-                                                                                <option value="HKD">HKD</option>
-                                                                                <option value="HRK">HRK</option>
-                                                                                <option value="HUF">HUF</option>
-                                                                                <option value="IDR">IDR</option>
-                                                                                <option value="ILS">ILS</option>
-                                                                                <option value="INR">INR</option>
-                                                                                <option value="ISK">ISK</option>
-                                                                                <option value="JPY">JPY</option>
-                                                                                <option value="KRW">KRW</option>
-                                                                                <option value="KZT">KZT</option>
-                                                                                <option value="MVR">MVR</option>
-                                                                                <option value="MXN">MXN</option>
-                                                                                <option value="MYR">MYR</option>
-                                                                                <option value="NOK">NOK</option>
-                                                                                <option value="NZD">NZD</option>
-                                                                                <option value="PAB">PAB</option>
-                                                                                <option value="PEN">PEN</option>
-                                                                                <option value="PHP">PHP</option>
-                                                                                <option value="PKR">PKR</option>
-                                                                                <option value="PLN">PLN</option>
-                                                                                <option value="PYG">PYG</option>
-                                                                                <option value="RON">RON</option>
-                                                                                <option value="RUB">RUB</option>
-                                                                                <option value="SAR">SAR</option>
-                                                                                <option value="SEK">SEK</option>
-                                                                                <option value="SGD">SGD</option>
-                                                                                <option value="THB">THB</option>
-                                                                                <option value="TRY">TRY</option>
-                                                                                <option value="TWD">TWD</option>
-                                                                                <option value="UAH">UAH</option>
-                                                                                <option value="UYU">UYU</option>
-                                                                                <option value="ZAR">ZAR</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <script>
-                                                                            $(document).ready(function() {
-                                                                                $('#currencyChange2{{ $key }}').change(function() {
-                                                                                    var amount = $('#amount12{{ $key }}').val();
-                                                                                    var amount2 = $('#amount222{{ $key }}').val();
-                                                                                    var currency = $(this).val();
-                                                                                    $.ajax({
-                                                                                        type: 'GET',
-                                                                                        dataType: "json",
-                                                                                        url: 'https://api.exchangerate-api.com/v4/latest/USD',
-                                                                                        success: function(data, status, xhr) {
-                                                                                            // console.log('data: ', data.rates);
-                                                                                            var res = (data.rates[currency] / data.rates.USD) * amount;
-                                                                                            var res2 = (data.rates[currency] / data.rates.USD) * amount2;
+                                                                        <select style="font-size:12px;" class="to"
+                                                                            id="currencyChange{{ $key }}">
+                                                                            <option value="USD" selected>USD
+                                                                            </option>
+                                                                            <option value="AED">AED</option>
+                                                                            <option value="ARS">ARS</option>
+                                                                            <option value="AUD">AUD</option>
+                                                                            <option value="BGN">BGN</option>
+                                                                            <option value="BRL">BRL</option>
+                                                                            <option value="BSD">BSD</option>
+                                                                            <option value="CAD">CAD</option>
+                                                                            <option value="CHF">CHF</option>
+                                                                            <option value="CLP">CLP</option>
+                                                                            <option value="CNY">CNY</option>
+                                                                            <option value="COP">COP</option>
+                                                                            <option value="CZK">CZK</option>
+                                                                            <option value="DKK">DKK</option>
+                                                                            <option value="DOP">DOP</option>
+                                                                            <option value="EGP">EGP</option>
+                                                                            <option value="EUR">EUR</option>
+                                                                            <option value="FJD">FJD</option>
+                                                                            <option value="GBP">GBP</option>
+                                                                            <option value="GTQ">GTQ</option>
+                                                                            <option value="HKD">HKD</option>
+                                                                            <option value="HRK">HRK</option>
+                                                                            <option value="HUF">HUF</option>
+                                                                            <option value="IDR">IDR</option>
+                                                                            <option value="ILS">ILS</option>
+                                                                            <option value="INR">INR</option>
+                                                                            <option value="ISK">ISK</option>
+                                                                            <option value="JPY">JPY</option>
+                                                                            <option value="KRW">KRW</option>
+                                                                            <option value="KZT">KZT</option>
+                                                                            <option value="MVR">MVR</option>
+                                                                            <option value="MXN">MXN</option>
+                                                                            <option value="MYR">MYR</option>
+                                                                            <option value="NOK">NOK</option>
+                                                                            <option value="NZD">NZD</option>
+                                                                            <option value="PAB">PAB</option>
+                                                                            <option value="PEN">PEN</option>
+                                                                            <option value="PHP">PHP</option>
+                                                                            <option value="PKR">PKR</option>
+                                                                            <option value="PLN">PLN</option>
+                                                                            <option value="PYG">PYG</option>
+                                                                            <option value="RON">RON</option>
+                                                                            <option value="RUB">RUB</option>
+                                                                            <option value="SAR">SAR</option>
+                                                                            <option value="SEK">SEK</option>
+                                                                            <option value="SGD">SGD</option>
+                                                                            <option value="THB">THB</option>
+                                                                            <option value="TRY">TRY</option>
+                                                                            <option value="TWD">TWD</option>
+                                                                            <option value="UAH">UAH</option>
+                                                                            <option value="UYU">UYU</option>
+                                                                            <option value="ZAR">ZAR</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <script>
+                                                                        $(document).ready(function() {
+                                                                            $('#currencyChange{{ $key }}').change(function() {
+                                                                                var amount = $('#amount1{{ $key }}').val();
+                                                                                var amount2 = $('#amount2{{ $key }}').val();
+                                                                                var currency = $(this).val();
+                                                                                $.ajax({
+                                                                                    type: 'GET',
+                                                                                    dataType: "json",
+                                                                                    url: 'https://api.exchangerate-api.com/v4/latest/USD',
+                                                                                    success: function(data, status, xhr) {
+                                                                                        // console.log('data: ', data.rates);
+                                                                                        var res = (data.rates[currency] / data.rates.USD) * amount;
+                                                                                        var res2 = (data.rates[currency] / data.rates.USD) * amount2;
 
-                                                                                            $('#finalValue222{{ $key }}').html(currency + '' + res
-                                                                                                .toFixed(2));
-                                                                                            $('#finalValue22{{ $key }}').html(currency + '' + res2
-                                                                                                .toFixed(2));
-                                                                                        }
-                                                                                    });
+                                                                                        $('#finalValue{{ $key }}').html(currency + '' + res
+                                                                                            .toFixed(2));
+                                                                                        $('#finalValue2{{ $key }}').html(currency + '' + res2
+                                                                                            .toFixed(2));
+                                                                                    }
                                                                                 });
                                                                             });
-                                                                        </script>
-                                                                        <div class="row" style="">
-                                                                            <div class="col-8 text-left"
-                                                                                style="margin-top: -80px;">
-                                                                                <span><i class="w-icon-map-marker"></i>
-                                                                                    <b>Location</b></span>
-                                                                                <p
-                                                                                    style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
-                                                                                    &emsp;
-                                                                                    @if ($value->shipping_details)
-                                                                                        @foreach ($value->shipping_details as $key2 => $value2)
-                                                                                            @if ($key2 == $value->shipping_details->count() - 1)
-                                                                                                {{ $value2->location->name }}
-                                                                                            @else
-                                                                                                {{ $value2->location->name }},
-                                                                                            @endif
-                                                                                        @endforeach
-                                                                                    @endif
-                                                                                </p>
-                                                                                <div style="margin-top:-10px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Brand</b></span>
-                                                                                    <div>
-                                                                                        &emsp;&nbsp;<img
-                                                                                            src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-button:auto;"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div class="col-4 text-right">
-                                                                                @php
-                                                                                    $stockIn = 0;
-                                                                                    $stockOut = 0;
-                                                                                @endphp
-                                                                                @if ($value->stock)
-                                                                                    @foreach ($value->stock as $stock)
-                                                                                        @php
-                                                                                            $stockIn += $stock->qty_in;
-                                                                                            $stockOut += $stock->qty_out;
-                                                                                        @endphp
+                                                                        });
+                                                                    </script>
+                                                                    <div class="row" style="">
+                                                                        <div class="col-8 text-left"
+                                                                            style="margin-top: -87px;">
+                                                                            <span style="font-size: 12px;"><i class="w-icon-map-marker"></i>
+                                                                                <b>Location</b></span>
+                                                                            <p
+                                                                                style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
+                                                                                &emsp;
+                                                                                @if ($value->shipping_details)
+                                                                                    @foreach ($value->shipping_details as $key2 => $value2)
+                                                                                        @if ($key2 == $value->shipping_details->count() - 1)
+                                                                                            {{ $value2->location->name }}
+                                                                                        @else
+                                                                                            {{ $value2->location->name }},
+                                                                                        @endif
                                                                                     @endforeach
                                                                                 @endif
+                                                                            </p>
+                                                                            
 
-                                                                                @if(($stockIn-$stockOut)<=0)
-                                                                                    <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
-                                                                                @else
-                                                                                    <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
-                                                                                @endif
-                                                                                @if ($value->biller->image!=null)
-                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
-                                                                                @else
-                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
-                                                                                @endif
+                                                                            <div style="margin-top: -10px;">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Condition</b></span>
+                                                                                <div class="mt-2">
+                                                                                    @if ($value->conditions)
+                                                                                        @foreach ($value->conditions as $key1 => $value1)
+                                                                                            @if ($key1 == 0)
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        class="active"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            id="conditionChoice1"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif ($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        class="active"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @else
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @endif
+                                                                                        @endforeach  
+                                                                                    @endif
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-4 text-right " style="margin-top:5px;">
+                                                                            @php
+                                                                                $stockIn = 0;
+                                                                                $stockOut = 0;
+                                                                            @endphp
+                                                                            @if ($value->stock)
+                                                                                @foreach ($value->stock as $stock)
+                                                                                    @php
+                                                                                        $stockIn += $stock->qty_in;
+                                                                                        $stockOut += $stock->qty_out;
+                                                                                    @endphp
+                                                                                @endforeach
+                                                                            @endif
+                                                                            @if(($stockIn-$stockOut)<=0)
+                                                                                <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
+                                                                            @else
+                                                                                <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                            @endif
+
+                                                                            @if ($value->biller->image!=null)
+                                                                            <!-- &emsp;&nbsp; -->
+                                                                            <a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                            @else
+                                                                            <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
+                                                                            @endif
+                                                                        </div>
+                                                                        
+                                    
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-7 text-left">
+                                                                        <div style="margin-top:-51px; ">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Brand</b></span>
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
+                                                                                        style="width: 100px;margin-button:auto;"
+                                                                                        alt="brand logo">
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="row">
-                                                                            <div class="col-7 text-left">
-                                                                                <div style="margin-top: -30px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Condition</b></span>
-                                                                                    <div class="mt-2">
-                                                                                        @if ($value->conditions)
-                                                                                            @foreach ($value->conditions as $key1 => $value1)
-                                                                                                @if ($key1 == 0)
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor2{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition2({{ $key }},{{ $key1 }})"
-                                                                                                            class="active"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice2{{ $key }}"
-                                                                                                                id="conditionChoice2{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                id="conditionChoice1"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr2{{ $key . '_' . $key1 }}"
-                                                                                                            class="active"
-                                                                                                            onclick="ChangeCondition2({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice2{{ $key }}"
-                                                                                                                id="conditionChoice2{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @else
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor2{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition2({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice2{{ $key }}"
-                                                                                                                id="conditionChoice2{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr2{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition2({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice2{{ $key }}"
-                                                                                                                id="conditionChoice2{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                        @endif
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                        
 
+                                                                        <div class="col-5 text-right">
+                                                                            <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
+                                                                                title="Add To Wishlist"
+                                                                                style="font-size: 10px;"><i
+                                                                                    class="w-icon-heart-full"></i>
+                                                                                Add To Wishlist
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-7 text-left">
+                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                                class="btn btn-sm btn-primary btn-block"
+                                                                                style="margin-top: 10px;">
+                                                                                <span style="margin-left: -2px;">
+                                                                                <i
+                                                                                    class="w-icon-cart"></i>
+                                                                                View
+                                                                                Details </span></a>
+                                                                        </div>
+                                                                        <div class="col-5  text-right">
+                                                                            @php 
+                                                                            $stars=0;
+                                                                            $count=0;
+                                                                            @endphp
+                                                                            @foreach($relatedreviews as $reviews)
+                                                                            @if ($value->id == $reviews->product_id )
+                                                                            @php
+                                                                                $count= $count+1;
+                                                                                $stars+= $reviews->rating;
+                                                                            @endphp
+                                                                            @endif
+                                                                            @endforeach
+                                                                            
+                                                                            @if($count!=0 )
                                                                             <div class="col-5 text-right">
-                                                                                <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
-                                                                                    title="Add To Wishlist"
-                                                                                    style="font-size: 10px;"><i
-                                                                                        class="w-icon-heart-full"></i>
-                                                                                    Add To Wishlist
-                                                                                </a>
+                                                                                <br>
+                                                                                {{-- <p>{{ $count }}</p> --}}
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $stars }}</p> --}}
+                                                                                        <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
+                                                                                    </div>
+                                                                                    {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-7 text-left">
-                                                                                <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                    class="btn btn-sm btn-primary btn-block"
-                                                                                    style="margin-top: 10px;"><i
-                                                                                        class="w-icon-cart"></i>
-                                                                                    View
-                                                                                    Details</a>
-                                                                            </div>
+                                                                            @else  
                                                                             <div class="col-5 text-right">
-                                                                                @php
-                                                                                $stars=0;
-                                                                                $count=0;
-                                                                                @endphp
-                                                                                @foreach($relatedreviews as $reviews)
-                                                                                @if ($value->id == $reviews->product_id )
-                                                                                @php
-                                                                                    $count= $count+1;
-                                                                                    $stars+= $reviews->rating;
-                                                                                @endphp
-                                                                                @endif
-                                                                                @endforeach
-
-                                                                                @if($count!=0 )
-                                                                                <div class="col-5 text-right">
-                                                                                    <br>
-                                                                                    {{-- <p>{{ $count }}</p> --}}
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $stars }}</p> --}}
-                                                                                            <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                        {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                
+                                                                                <br>
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $count }}</p> --}}
+                                                                                        
+                                                                                        <span class="ratings" style="width:0%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
-                                                                                <div class="col-5 text-right">
-
-                                                                                    <br>
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $count }}</p> --}}
-
-                                                                                            <span class="ratings" style="width:0%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                {{-- <div class="star-rating "
-                                                                                    style="font-size: 13px;float: right;margin-top:10px;">
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square"
-                                                                                        style="color: #CCCCCC"></i>
-                                                                                    <br />
-                                                                                    <span
-                                                                                        style="font-size: 12px;position: relative;top:-5px;">12
-                                                                                        Review(s)</span>
-                                                                                </div> --}}
                                                                             </div>
+                                                                            @endif
+                                                                            {{-- <div class="star-rating "
+                                                                                style="font-size: 13px;float: right;margin-top:10px;">
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square"
+                                                                                    style="color: #CCCCCC"></i>
+                                                                                <br />
+                                                                                <span
+                                                                                    style="font-size: 12px;position: relative;top:-5px;">12
+                                                                                    Review(s)</span>
+                                                                            </div> --}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        @php $n2++; @endphp
-                                                    @endif
-                                                    @if ($n2==5)
-                                                    @break
-                                                    @endif
-                                                @endforeach
+                                                    </div>
+                                                    @php $n++; @endphp
+                                                @endif
+                                            @if ($n==5)
+                                            @break
+                                            @endif
+                                            @endforeach                                               
                                                 @if ($n2 == 0)
                                                     <div class="swiper-slide product-col">
                                                         <div class="product-wrap"
@@ -1863,7 +1956,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php
+                                                                                @php 
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -1875,7 +1968,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-
+                                                                                
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -1889,14 +1982,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
+                                                                                @else  
                                                                                 <div class="col-5 text-right">
-
+                                                                                    
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-
+                                                                                            
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -2027,29 +2120,39 @@
                     @php $tab3=0; @endphp
                     @foreach ($SubcategoriesList3 as $subcategory)
                         @if ($tab3 == 0)
-                            <div class="tab-pane active pt-0" id="tab3-{{ $tab3 }}">
+                        <div class="tab-pane active pt-0" id="tab3-{{ $tab3 }}">
                                 <div class="row">
-                                    <div class="col-lg-3 col-sm-4 mb-4">
+                                    <div style="max-width: 18%;" class="col-lg-3 col-sm-4 mb-4">
                                         <div class="banner h-100 br-sm"
                                             style="background-image: url({{ $homeSettings->category3_image }});
                                             background-color: #ebeced;">
                                         </div>
                                     </div>
                                     <!-- End of Banner -->
-                                    <div class="col-lg-9 col-sm-8">
+                                    <div style="max-width: 82%;" class="col-lg-9 col-sm-8">
                                         <div class="swiper-container swiper-theme"
                                             data-swiper-options="{
                                             'spaceBetween': 20,
                                             'slidesPerView': 1,
                                             'breakpoints': {
-                                                '992': {
+                                                
+                                                
+                                                '670': {
                                                     'slidesPerView': 2
                                                 },
-                                                '1200': {
+                                                
+
+                                                '900': {
                                                     'slidesPerView': 3
+                                                },
+                                                '1200': {
+                                                    'slidesPerView': 4
                                                 }
+                                                
                                             }
                                         }">
+
+                                            
                                             <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                                                 @php $n3=0; @endphp
                                                 @foreach ($products as $key => $value)
@@ -2076,339 +2179,356 @@
                                                                         <hr>
                                                                     </figure>
                                                                     <div class="product-details">
-                                                                        <p class="text-left"
-                                                                            style="margin-top:-25px;">
-                                                                            <a style="color: black;font-size:20px;font-weight: bold;"
-                                                                                href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+
+                                                                    <p class="text-left "
+                                                                        style="margin-top:-10px; margin-bottom:15px; line-height:1;" >
+                                                                        <a style="color: black;font-size:20px;font-weight: bold;"
+                                                                            href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+                                                                    </p>
+                                                                    <p class="text-left"
+                                                                        style="margin-top: -10px;font-size:14px; line-height: 1.3;">
+                                                                        {{ $value->name }}</p>
+                                                                        <div   style="font-family: auto; line-height: 1.3; color: black; font-size: 12px; text-align:justify !important;">
+                                                                        
+                                                                        {{ Str::words(strip_tags($value->description), 3) }}...<a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                        </div>
+                                                                    <!-- <div class="text-left" style="">
+                                                                        <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                    </div> -->
+                                                                    <div class="old-price text-right">
+                                                                        <p
+                                                                            style="font-size: 15px;margin-bottom:20px;">
+                                                                            <del
+                                                                                id="finalValue2{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
                                                                         </p>
-                                                                        <p class="text-left"
-                                                                            style="margin-top: -10px;font-size:12px;">
-                                                                            {{ $value->name }}</p>
-                                                                        <div
-                                                                            style="color: black;font-size:10px;text-align: left!important;">
-                                                                            {!! Str::words($value->description, 35) !!}</div>
-                                                                        <div class="text-left" style="">
-                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                style="font-size: 12px;">View Details
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="old-price text-right">
-                                                                            <p
-                                                                                style="font-size: 15px;margin-bottom:20px;">
-                                                                                <del
-                                                                                    id="finalValue223{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="sale-price text-right">
-                                                                            <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
-                                                                                id="finalValue2223{{ $key }}">
-                                                                                &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
-                                                                            </p>
-                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sale-price text-right">
+                                                                        <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
+                                                                            id="finalValue{{ $key }}">
+                                                                            &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
+                                                                        </p>
+                                                                    </div>
 
-                                                                        <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
-                                                                            class="ml-auto">
-                                                                            <input type="hidden"
-                                                                                id="amount123{{ $key }}"
-                                                                                value="{{ $value->new_sale_price }}">
-                                                                            <input type="hidden" name="price"
-                                                                                id="amount2223{{ $key }}"
-                                                                                value="{{ $value->new_price }}">
+                                                                    <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
+                                                                        class="ml-auto">
+                                                                        <input type="hidden"
+                                                                            id="amount1{{ $key }}"
+                                                                            value="{{ $value->new_sale_price }}">
+                                                                        <input type="hidden" name="price"
+                                                                            id="amount2{{ $key }}"
+                                                                            value="{{ $value->new_price }}">
 
-                                                                            <select class="to"
-                                                                                id="currencyChange3{{ $key }}">
-                                                                                <option value="USD" selected>USD
-                                                                                </option>
-                                                                                <option value="AED">AED</option>
-                                                                                <option value="ARS">ARS</option>
-                                                                                <option value="AUD">AUD</option>
-                                                                                <option value="BGN">BGN</option>
-                                                                                <option value="BRL">BRL</option>
-                                                                                <option value="BSD">BSD</option>
-                                                                                <option value="CAD">CAD</option>
-                                                                                <option value="CHF">CHF</option>
-                                                                                <option value="CLP">CLP</option>
-                                                                                <option value="CNY">CNY</option>
-                                                                                <option value="COP">COP</option>
-                                                                                <option value="CZK">CZK</option>
-                                                                                <option value="DKK">DKK</option>
-                                                                                <option value="DOP">DOP</option>
-                                                                                <option value="EGP">EGP</option>
-                                                                                <option value="EUR">EUR</option>
-                                                                                <option value="FJD">FJD</option>
-                                                                                <option value="GBP">GBP</option>
-                                                                                <option value="GTQ">GTQ</option>
-                                                                                <option value="HKD">HKD</option>
-                                                                                <option value="HRK">HRK</option>
-                                                                                <option value="HUF">HUF</option>
-                                                                                <option value="IDR">IDR</option>
-                                                                                <option value="ILS">ILS</option>
-                                                                                <option value="INR">INR</option>
-                                                                                <option value="ISK">ISK</option>
-                                                                                <option value="JPY">JPY</option>
-                                                                                <option value="KRW">KRW</option>
-                                                                                <option value="KZT">KZT</option>
-                                                                                <option value="MVR">MVR</option>
-                                                                                <option value="MXN">MXN</option>
-                                                                                <option value="MYR">MYR</option>
-                                                                                <option value="NOK">NOK</option>
-                                                                                <option value="NZD">NZD</option>
-                                                                                <option value="PAB">PAB</option>
-                                                                                <option value="PEN">PEN</option>
-                                                                                <option value="PHP">PHP</option>
-                                                                                <option value="PKR">PKR</option>
-                                                                                <option value="PLN">PLN</option>
-                                                                                <option value="PYG">PYG</option>
-                                                                                <option value="RON">RON</option>
-                                                                                <option value="RUB">RUB</option>
-                                                                                <option value="SAR">SAR</option>
-                                                                                <option value="SEK">SEK</option>
-                                                                                <option value="SGD">SGD</option>
-                                                                                <option value="THB">THB</option>
-                                                                                <option value="TRY">TRY</option>
-                                                                                <option value="TWD">TWD</option>
-                                                                                <option value="UAH">UAH</option>
-                                                                                <option value="UYU">UYU</option>
-                                                                                <option value="ZAR">ZAR</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <script>
-                                                                            $(document).ready(function() {
-                                                                                $('#currencyChange3{{ $key }}').change(function() {
-                                                                                    var amount = $('#amount123{{ $key }}').val();
-                                                                                    var amount2 = $('#amount2223{{ $key }}').val();
-                                                                                    var currency = $(this).val();
-                                                                                    $.ajax({
-                                                                                        type: 'GET',
-                                                                                        dataType: "json",
-                                                                                        url: 'https://api.exchangerate-api.com/v4/latest/USD',
-                                                                                        success: function(data, status, xhr) {
-                                                                                            // console.log('data: ', data.rates);
-                                                                                            var res = (data.rates[currency] / data.rates.USD) * amount;
-                                                                                            var res2 = (data.rates[currency] / data.rates.USD) * amount2;
+                                                                        <select style="font-size:12px;" class="to"
+                                                                            id="currencyChange{{ $key }}">
+                                                                            <option value="USD" selected>USD
+                                                                            </option>
+                                                                            <option value="AED">AED</option>
+                                                                            <option value="ARS">ARS</option>
+                                                                            <option value="AUD">AUD</option>
+                                                                            <option value="BGN">BGN</option>
+                                                                            <option value="BRL">BRL</option>
+                                                                            <option value="BSD">BSD</option>
+                                                                            <option value="CAD">CAD</option>
+                                                                            <option value="CHF">CHF</option>
+                                                                            <option value="CLP">CLP</option>
+                                                                            <option value="CNY">CNY</option>
+                                                                            <option value="COP">COP</option>
+                                                                            <option value="CZK">CZK</option>
+                                                                            <option value="DKK">DKK</option>
+                                                                            <option value="DOP">DOP</option>
+                                                                            <option value="EGP">EGP</option>
+                                                                            <option value="EUR">EUR</option>
+                                                                            <option value="FJD">FJD</option>
+                                                                            <option value="GBP">GBP</option>
+                                                                            <option value="GTQ">GTQ</option>
+                                                                            <option value="HKD">HKD</option>
+                                                                            <option value="HRK">HRK</option>
+                                                                            <option value="HUF">HUF</option>
+                                                                            <option value="IDR">IDR</option>
+                                                                            <option value="ILS">ILS</option>
+                                                                            <option value="INR">INR</option>
+                                                                            <option value="ISK">ISK</option>
+                                                                            <option value="JPY">JPY</option>
+                                                                            <option value="KRW">KRW</option>
+                                                                            <option value="KZT">KZT</option>
+                                                                            <option value="MVR">MVR</option>
+                                                                            <option value="MXN">MXN</option>
+                                                                            <option value="MYR">MYR</option>
+                                                                            <option value="NOK">NOK</option>
+                                                                            <option value="NZD">NZD</option>
+                                                                            <option value="PAB">PAB</option>
+                                                                            <option value="PEN">PEN</option>
+                                                                            <option value="PHP">PHP</option>
+                                                                            <option value="PKR">PKR</option>
+                                                                            <option value="PLN">PLN</option>
+                                                                            <option value="PYG">PYG</option>
+                                                                            <option value="RON">RON</option>
+                                                                            <option value="RUB">RUB</option>
+                                                                            <option value="SAR">SAR</option>
+                                                                            <option value="SEK">SEK</option>
+                                                                            <option value="SGD">SGD</option>
+                                                                            <option value="THB">THB</option>
+                                                                            <option value="TRY">TRY</option>
+                                                                            <option value="TWD">TWD</option>
+                                                                            <option value="UAH">UAH</option>
+                                                                            <option value="UYU">UYU</option>
+                                                                            <option value="ZAR">ZAR</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <script>
+                                                                        $(document).ready(function() {
+                                                                            $('#currencyChange{{ $key }}').change(function() {
+                                                                                var amount = $('#amount1{{ $key }}').val();
+                                                                                var amount2 = $('#amount2{{ $key }}').val();
+                                                                                var currency = $(this).val();
+                                                                                $.ajax({
+                                                                                    type: 'GET',
+                                                                                    dataType: "json",
+                                                                                    url: 'https://api.exchangerate-api.com/v4/latest/USD',
+                                                                                    success: function(data, status, xhr) {
+                                                                                        // console.log('data: ', data.rates);
+                                                                                        var res = (data.rates[currency] / data.rates.USD) * amount;
+                                                                                        var res2 = (data.rates[currency] / data.rates.USD) * amount2;
 
-                                                                                            $('#finalValue2223{{ $key }}').html(currency + '' + res
-                                                                                                .toFixed(2));
-                                                                                            $('#finalValue223{{ $key }}').html(currency + '' + res2
-                                                                                                .toFixed(2));
-                                                                                        }
-                                                                                    });
+                                                                                        $('#finalValue{{ $key }}').html(currency + '' + res
+                                                                                            .toFixed(2));
+                                                                                        $('#finalValue2{{ $key }}').html(currency + '' + res2
+                                                                                            .toFixed(2));
+                                                                                    }
                                                                                 });
                                                                             });
-                                                                        </script>
-                                                                        <div class="row" style="">
-                                                                            <div class="col-8 text-left"
-                                                                                style="margin-top: -80px;">
-                                                                                <span><i
-                                                                                        class="w-icon-map-marker"></i>
-                                                                                    <b>Location</b></span>
-                                                                                <p
-                                                                                    style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
-                                                                                    &emsp;
-                                                                                    @if ($value->shipping_details)
-                                                                                        @foreach ($value->shipping_details as $key2 => $value2)
-                                                                                            @if ($key2 == $value->shipping_details->count() - 1)
-                                                                                                {{ $value2->location->name }}
-                                                                                            @else
-                                                                                                {{ $value2->location->name }},
-                                                                                            @endif
-                                                                                        @endforeach
-                                                                                    @endif
-                                                                                </p>
-                                                                                <div style="margin-top:-10px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Brand</b></span>
-                                                                                    <div>
-                                                                                        &emsp;&nbsp;<img
-                                                                                            src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 80px;margin-button:auto;"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div class="col-4 text-right">
-                                                                                @php
-                                                                                    $stockIn = 0;
-                                                                                    $stockOut = 0;
-                                                                                @endphp
-                                                                                @if ($value->stock)
-                                                                                    @foreach ($value->stock as $stock)
-                                                                                        @php
-                                                                                            $stockIn += $stock->qty_in;
-                                                                                            $stockOut += $stock->qty_out;
-                                                                                        @endphp
+                                                                        });
+                                                                    </script>
+                                                                    <div class="row" style="">
+                                                                        <div class="col-8 text-left"
+                                                                            style="margin-top: -87px;">
+                                                                            <span style="font-size: 12px;"><i class="w-icon-map-marker"></i>
+                                                                                <b>Location</b></span>
+                                                                            <p
+                                                                                style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
+                                                                                &emsp;
+                                                                                @if ($value->shipping_details)
+                                                                                    @foreach ($value->shipping_details as $key2 => $value2)
+                                                                                        @if ($key2 == $value->shipping_details->count() - 1)
+                                                                                            {{ $value2->location->name }}
+                                                                                        @else
+                                                                                            {{ $value2->location->name }},
+                                                                                        @endif
                                                                                     @endforeach
                                                                                 @endif
-                                                                                @if(($stockIn-$stockOut)<=0)
-                                                                                    <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
-                                                                                @else
-                                                                                    <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
-                                                                                @endif
+                                                                            </p>
+                                                                            
 
-                                                                                @if ($value->biller->image!=null)
-                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
-                                                                                @else
-                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
-                                                                                @endif
+                                                                            <div style="margin-top: -10px;">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Condition</b></span>
+                                                                                <div class="mt-2">
+                                                                                    @if ($value->conditions)
+                                                                                        @foreach ($value->conditions as $key1 => $value1)
+                                                                                            @if ($key1 == 0)
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        class="active"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            id="conditionChoice1"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif ($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        class="active"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @else
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @endif
+                                                                                        @endforeach  
+                                                                                    @endif
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-4 text-right " style="margin-top:5px;">
+                                                                            @php
+                                                                                $stockIn = 0;
+                                                                                $stockOut = 0;
+                                                                            @endphp
+                                                                            @if ($value->stock)
+                                                                                @foreach ($value->stock as $stock)
+                                                                                    @php
+                                                                                        $stockIn += $stock->qty_in;
+                                                                                        $stockOut += $stock->qty_out;
+                                                                                    @endphp
+                                                                                @endforeach
+                                                                            @endif
+                                                                            @if(($stockIn-$stockOut)<=0)
+                                                                                <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
+                                                                            @else
+                                                                                <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                            @endif
+
+                                                                            @if ($value->biller->image!=null)
+                                                                            <!-- &emsp;&nbsp; -->
+                                                                            <a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                            @else
+                                                                            <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
+                                                                            @endif
+                                                                        </div>
+                                                                        
+                                    
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-7 text-left">
+                                                                        <div style="margin-top:-51px; ">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Brand</b></span>
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
+                                                                                        style="width: 100px;margin-button:auto;"
+                                                                                        alt="brand logo">
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="row">
-                                                                            <div class="col-7 text-left">
-                                                                                <div style="margin-top: -30px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Condition</b></span>
-                                                                                    <div class="mt-2">
-                                                                                        @if ($value->conditions)
-                                                                                            @foreach ($value->conditions as $key1 => $value1)
-                                                                                                @if ($key1 == 0)
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor23{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition3({{ $key }},{{ $key1 }})"
-                                                                                                            class="active"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice23{{ $key }}"
-                                                                                                                id="conditionChoice23{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr23{{ $key . '_' . $key1 }}"
-                                                                                                            class="active"
-                                                                                                            onclick="ChangeCondition3({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice23{{ $key }}"
-                                                                                                                id="conditionChoice23{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @else
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor23{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition3({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice23{{ $key }}"
-                                                                                                                id="conditionChoice23{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr23{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition3({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice23{{ $key }}"
-                                                                                                                id="conditionChoice23{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                        @endif
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
+                                                                        
 
+                                                                        <div class="col-5 text-right">
+                                                                            <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
+                                                                                title="Add To Wishlist"
+                                                                                style="font-size: 10px;"><i
+                                                                                    class="w-icon-heart-full"></i>
+                                                                                Add To Wishlist
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-7 text-left">
+                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                                class="btn btn-sm btn-primary btn-block"
+                                                                                style="margin-top: 10px;">
+                                                                                <span style="margin-left: -2px;">
+                                                                                <i
+                                                                                    class="w-icon-cart"></i>
+                                                                                View
+                                                                                Details </span></a>
+                                                                        </div>
+                                                                        <div class="col-5  text-right">
+                                                                            @php 
+                                                                            $stars=0;
+                                                                            $count=0;
+                                                                            @endphp
+                                                                            @foreach($relatedreviews as $reviews)
+                                                                            @if ($value->id == $reviews->product_id )
+                                                                            @php
+                                                                                $count= $count+1;
+                                                                                $stars+= $reviews->rating;
+                                                                            @endphp
+                                                                            @endif
+                                                                            @endforeach
+                                                                            
+                                                                            @if($count!=0 )
                                                                             <div class="col-5 text-right">
-                                                                                <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
-                                                                                    title="Add To Wishlist"
-                                                                                    style="font-size: 10px;"><i
-                                                                                        class="w-icon-heart-full"></i>
-                                                                                    Add To Wishlist
-                                                                                </a>
+                                                                                <br>
+                                                                                {{-- <p>{{ $count }}</p> --}}
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $stars }}</p> --}}
+                                                                                        <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
+                                                                                    </div>
+                                                                                    {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-7 text-left">
-                                                                                <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                    class="btn btn-sm btn-primary btn-block"
-                                                                                    style="margin-top: 10px;"><i
-                                                                                        class="w-icon-cart"></i>
-                                                                                    View
-                                                                                    Details</a>
-                                                                            </div>
+                                                                            @else  
                                                                             <div class="col-5 text-right">
-                                                                                @php
-                                                                                $stars=0;
-                                                                                $count=0;
-                                                                                @endphp
-                                                                                @foreach($relatedreviews as $reviews)
-                                                                                @if ($value->id == $reviews->product_id )
-                                                                                @php
-                                                                                    $count= $count+1;
-                                                                                    $stars+= $reviews->rating;
-                                                                                @endphp
-                                                                                @endif
-                                                                                @endforeach
-
-                                                                                @if($count!=0 )
-                                                                                <div class="col-5 text-right">
-                                                                                    <br>
-                                                                                    {{-- <p>{{ $count }}</p> --}}
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $stars }}</p> --}}
-                                                                                            <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                        {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                
+                                                                                <br>
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $count }}</p> --}}
+                                                                                        
+                                                                                        <span class="ratings" style="width:0%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
-                                                                                <div class="col-5 text-right">
-
-                                                                                    <br>
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $count }}</p> --}}
-
-                                                                                            <span class="ratings" style="width:0%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                {{-- <div class="star-rating "
-                                                                                    style="font-size: 13px;float: right;margin-top:10px;">
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square"
-                                                                                        style="color: #CCCCCC"></i>
-                                                                                    <br />
-                                                                                    <span
-                                                                                        style="font-size: 12px;position: relative;top:-5px;">12
-                                                                                        Review(s)</span>
-                                                                                </div> --}}
                                                                             </div>
+                                                                            @endif
+                                                                            {{-- <div class="star-rating "
+                                                                                style="font-size: 13px;float: right;margin-top:10px;">
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square"
+                                                                                    style="color: #CCCCCC"></i>
+                                                                                <br />
+                                                                                <span
+                                                                                    style="font-size: 12px;position: relative;top:-5px;">12
+                                                                                    Review(s)</span>
+                                                                            </div> --}}
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -2751,7 +2871,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php
+                                                                                @php 
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -2763,7 +2883,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-
+                                                                                
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -2777,14 +2897,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
+                                                                                @else  
                                                                                 <div class="col-5 text-right">
-
+                                                                                    
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-
+                                                                                            
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -2889,29 +3009,39 @@
                     @php $tab4=0; @endphp
                     @foreach ($SubcategoriesList4 as $subcategory)
                         @if ($tab4 == 0)
-                            <div class="tab-pane active pt-0" id="tab4-{{ $tab4 }}">
+                        <div class="tab-pane active pt-0" id="tab4-{{ $tab4 }}">
                                 <div class="row">
-                                    <div class="col-lg-3 col-sm-4 mb-4">
+                                    <div style="max-width: 18%;" class="col-lg-3 col-sm-4 mb-4">
                                         <div class="banner h-100 br-sm"
                                             style="background-image: url({{ $homeSettings->category4_image }});
                                             background-color: #ebeced;">
                                         </div>
                                     </div>
                                     <!-- End of Banner -->
-                                    <div class="col-lg-9 col-sm-8">
+                                    <div style="max-width: 82%;" class="col-lg-9 col-sm-8">
                                         <div class="swiper-container swiper-theme"
                                             data-swiper-options="{
                                             'spaceBetween': 20,
                                             'slidesPerView': 1,
                                             'breakpoints': {
-                                                '992': {
+                                                
+                                                
+                                                '670': {
                                                     'slidesPerView': 2
                                                 },
-                                                '1200': {
+                                                
+
+                                                '900': {
                                                     'slidesPerView': 3
+                                                },
+                                                '1200': {
+                                                    'slidesPerView': 4
                                                 }
+                                                
                                             }
                                         }">
+
+                                            
                                             <div class="swiper-wrapper row cols-xl-4 cols-lg-3 cols-2">
                                                 @php $n4=0; @endphp
                                                 @foreach ($products as $key => $value)
@@ -2938,340 +3068,356 @@
                                                                         <hr>
                                                                     </figure>
                                                                     <div class="product-details">
-                                                                        <p class="text-left"
-                                                                            style="margin-top:-25px;">
-                                                                            <a style="color: black;font-size:20px;font-weight: bold;"
-                                                                                href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+
+                                                                    <p class="text-left "
+                                                                        style="margin-top:-10px; margin-bottom:15px; line-height:1;" >
+                                                                        <a style="color: black;font-size:20px;font-weight: bold;"
+                                                                            href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}">{{ $value->model_no }}</a>
+                                                                    </p>
+                                                                    <p class="text-left"
+                                                                        style="margin-top: -10px;font-size:14px; line-height: 1.3;">
+                                                                        {{ $value->name }}</p>
+                                                                        <div   style="font-family: auto; line-height: 1.3; color: black; font-size: 12px; text-align:justify !important;">
+                                                                        
+                                                                        {{ Str::words(strip_tags($value->description), 3) }}...<a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                        </div>
+                                                                    <!-- <div class="text-left" style="">
+                                                                        <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                            style="font-size: 12px;">View Details
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
+                                                                            <i class="w-icon-angle-righ"
+                                                                                style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
+                                                                        </a>
+                                                                    </div> -->
+                                                                    <div class="old-price text-right">
+                                                                        <p
+                                                                            style="font-size: 15px;margin-bottom:20px;">
+                                                                            <del
+                                                                                id="finalValue2{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
                                                                         </p>
-                                                                        <p class="text-left"
-                                                                            style="margin-top: -10px;font-size:12px;">
-                                                                            {{ $value->name }}</p>
-                                                                        <div
-                                                                            style="color: black;font-size:10px;text-align: left!important;">
-                                                                            {!! Str::words($value->description, 35) !!}</div>
-                                                                        <div class="text-left" style="">
-                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                style="font-size: 12px;">View Details
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="font-size:9px;margin-left:2px;position: relative;top:0px;"></i>
-                                                                                <i class="w-icon-angle-right"
-                                                                                    style="margin-left: -15px;font-size:9px;position: relative;top:0px;"></i>
-                                                                            </a>
-                                                                        </div>
-                                                                        <div class="old-price text-right">
-                                                                            <p
-                                                                                style="font-size: 15px;margin-bottom:20px;">
-                                                                                <del
-                                                                                    id="finalValue2234{{ $key }}">&nbsp;{{ $settings->currency . '' . $value->new_price }}&nbsp;</del>
-                                                                            </p>
-                                                                        </div>
-                                                                        <div class="sale-price text-right">
-                                                                            <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
-                                                                                id="finalValue22234{{ $key }}">
-                                                                                &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
-                                                                            </p>
-                                                                        </div>
+                                                                    </div>
+                                                                    <div class="sale-price text-right">
+                                                                        <p style="font-size: 20px;margin-top:-35px;margin-bottom:20px;"
+                                                                            id="finalValue{{ $key }}">
+                                                                            &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
+                                                                        </p>
+                                                                    </div>
 
-                                                                        <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
-                                                                            class="ml-auto">
-                                                                            <input type="hidden"
-                                                                                id="amount1234{{ $key }}"
-                                                                                value="{{ $value->new_sale_price }}">
-                                                                            <input type="hidden" name="price"
-                                                                                id="amount22234{{ $key }}"
-                                                                                value="{{ $value->new_price }}">
+                                                                    <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
+                                                                        class="ml-auto">
+                                                                        <input type="hidden"
+                                                                            id="amount1{{ $key }}"
+                                                                            value="{{ $value->new_sale_price }}">
+                                                                        <input type="hidden" name="price"
+                                                                            id="amount2{{ $key }}"
+                                                                            value="{{ $value->new_price }}">
 
-                                                                            <select class="to"
-                                                                                id="currencyChange4{{ $key }}">
-                                                                                <option value="USD" selected>USD
-                                                                                </option>
-                                                                                <option value="AED">AED</option>
-                                                                                <option value="ARS">ARS</option>
-                                                                                <option value="AUD">AUD</option>
-                                                                                <option value="BGN">BGN</option>
-                                                                                <option value="BRL">BRL</option>
-                                                                                <option value="BSD">BSD</option>
-                                                                                <option value="CAD">CAD</option>
-                                                                                <option value="CHF">CHF</option>
-                                                                                <option value="CLP">CLP</option>
-                                                                                <option value="CNY">CNY</option>
-                                                                                <option value="COP">COP</option>
-                                                                                <option value="CZK">CZK</option>
-                                                                                <option value="DKK">DKK</option>
-                                                                                <option value="DOP">DOP</option>
-                                                                                <option value="EGP">EGP</option>
-                                                                                <option value="EUR">EUR</option>
-                                                                                <option value="FJD">FJD</option>
-                                                                                <option value="GBP">GBP</option>
-                                                                                <option value="GTQ">GTQ</option>
-                                                                                <option value="HKD">HKD</option>
-                                                                                <option value="HRK">HRK</option>
-                                                                                <option value="HUF">HUF</option>
-                                                                                <option value="IDR">IDR</option>
-                                                                                <option value="ILS">ILS</option>
-                                                                                <option value="INR">INR</option>
-                                                                                <option value="ISK">ISK</option>
-                                                                                <option value="JPY">JPY</option>
-                                                                                <option value="KRW">KRW</option>
-                                                                                <option value="KZT">KZT</option>
-                                                                                <option value="MVR">MVR</option>
-                                                                                <option value="MXN">MXN</option>
-                                                                                <option value="MYR">MYR</option>
-                                                                                <option value="NOK">NOK</option>
-                                                                                <option value="NZD">NZD</option>
-                                                                                <option value="PAB">PAB</option>
-                                                                                <option value="PEN">PEN</option>
-                                                                                <option value="PHP">PHP</option>
-                                                                                <option value="PKR">PKR</option>
-                                                                                <option value="PLN">PLN</option>
-                                                                                <option value="PYG">PYG</option>
-                                                                                <option value="RON">RON</option>
-                                                                                <option value="RUB">RUB</option>
-                                                                                <option value="SAR">SAR</option>
-                                                                                <option value="SEK">SEK</option>
-                                                                                <option value="SGD">SGD</option>
-                                                                                <option value="THB">THB</option>
-                                                                                <option value="TRY">TRY</option>
-                                                                                <option value="TWD">TWD</option>
-                                                                                <option value="UAH">UAH</option>
-                                                                                <option value="UYU">UYU</option>
-                                                                                <option value="ZAR">ZAR</option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <script>
-                                                                            $(document).ready(function() {
-                                                                                $('#currencyChange4{{ $key }}').change(function() {
-                                                                                    var amount = $('#amount1234{{ $key }}').val();
-                                                                                    var amount2 = $('#amount22234{{ $key }}').val();
-                                                                                    var currency = $(this).val();
-                                                                                    $.ajax({
-                                                                                        type: 'GET',
-                                                                                        dataType: "json",
-                                                                                        url: 'https://api.exchangerate-api.com/v4/latest/USD',
-                                                                                        success: function(data, status, xhr) {
-                                                                                            // console.log('data: ', data.rates);
-                                                                                            var res = (data.rates[currency] / data.rates.USD) * amount;
-                                                                                            var res2 = (data.rates[currency] / data.rates.USD) * amount2;
+                                                                        <select style="font-size:12px;" class="to"
+                                                                            id="currencyChange{{ $key }}">
+                                                                            <option value="USD" selected>USD
+                                                                            </option>
+                                                                            <option value="AED">AED</option>
+                                                                            <option value="ARS">ARS</option>
+                                                                            <option value="AUD">AUD</option>
+                                                                            <option value="BGN">BGN</option>
+                                                                            <option value="BRL">BRL</option>
+                                                                            <option value="BSD">BSD</option>
+                                                                            <option value="CAD">CAD</option>
+                                                                            <option value="CHF">CHF</option>
+                                                                            <option value="CLP">CLP</option>
+                                                                            <option value="CNY">CNY</option>
+                                                                            <option value="COP">COP</option>
+                                                                            <option value="CZK">CZK</option>
+                                                                            <option value="DKK">DKK</option>
+                                                                            <option value="DOP">DOP</option>
+                                                                            <option value="EGP">EGP</option>
+                                                                            <option value="EUR">EUR</option>
+                                                                            <option value="FJD">FJD</option>
+                                                                            <option value="GBP">GBP</option>
+                                                                            <option value="GTQ">GTQ</option>
+                                                                            <option value="HKD">HKD</option>
+                                                                            <option value="HRK">HRK</option>
+                                                                            <option value="HUF">HUF</option>
+                                                                            <option value="IDR">IDR</option>
+                                                                            <option value="ILS">ILS</option>
+                                                                            <option value="INR">INR</option>
+                                                                            <option value="ISK">ISK</option>
+                                                                            <option value="JPY">JPY</option>
+                                                                            <option value="KRW">KRW</option>
+                                                                            <option value="KZT">KZT</option>
+                                                                            <option value="MVR">MVR</option>
+                                                                            <option value="MXN">MXN</option>
+                                                                            <option value="MYR">MYR</option>
+                                                                            <option value="NOK">NOK</option>
+                                                                            <option value="NZD">NZD</option>
+                                                                            <option value="PAB">PAB</option>
+                                                                            <option value="PEN">PEN</option>
+                                                                            <option value="PHP">PHP</option>
+                                                                            <option value="PKR">PKR</option>
+                                                                            <option value="PLN">PLN</option>
+                                                                            <option value="PYG">PYG</option>
+                                                                            <option value="RON">RON</option>
+                                                                            <option value="RUB">RUB</option>
+                                                                            <option value="SAR">SAR</option>
+                                                                            <option value="SEK">SEK</option>
+                                                                            <option value="SGD">SGD</option>
+                                                                            <option value="THB">THB</option>
+                                                                            <option value="TRY">TRY</option>
+                                                                            <option value="TWD">TWD</option>
+                                                                            <option value="UAH">UAH</option>
+                                                                            <option value="UYU">UYU</option>
+                                                                            <option value="ZAR">ZAR</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <script>
+                                                                        $(document).ready(function() {
+                                                                            $('#currencyChange{{ $key }}').change(function() {
+                                                                                var amount = $('#amount1{{ $key }}').val();
+                                                                                var amount2 = $('#amount2{{ $key }}').val();
+                                                                                var currency = $(this).val();
+                                                                                $.ajax({
+                                                                                    type: 'GET',
+                                                                                    dataType: "json",
+                                                                                    url: 'https://api.exchangerate-api.com/v4/latest/USD',
+                                                                                    success: function(data, status, xhr) {
+                                                                                        // console.log('data: ', data.rates);
+                                                                                        var res = (data.rates[currency] / data.rates.USD) * amount;
+                                                                                        var res2 = (data.rates[currency] / data.rates.USD) * amount2;
 
-                                                                                            $('#finalValue22234{{ $key }}').html(currency + '' + res
-                                                                                                .toFixed(2));
-                                                                                            $('#finalValue2234{{ $key }}').html(currency + '' + res2
-                                                                                                .toFixed(2));
-                                                                                        }
-                                                                                    });
+                                                                                        $('#finalValue{{ $key }}').html(currency + '' + res
+                                                                                            .toFixed(2));
+                                                                                        $('#finalValue2{{ $key }}').html(currency + '' + res2
+                                                                                            .toFixed(2));
+                                                                                    }
                                                                                 });
                                                                             });
-                                                                        </script>
-                                                                        <div class="row" style="">
-                                                                            <div class="col-8 text-left"
-                                                                                style="margin-top: -80px;">
-                                                                                <span><i
-                                                                                        class="w-icon-map-marker"></i>
-                                                                                    <b>Location</b></span>
-                                                                                <p
-                                                                                    style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
-                                                                                    &emsp;
-                                                                                    @if ($value->shipping_details)
-                                                                                        @foreach ($value->shipping_details as $key2 => $value2)
-                                                                                            @if ($key2 == $value->shipping_details->count() - 1)
-                                                                                                {{ $value2->location->name }}
-                                                                                            @else
-                                                                                                {{ $value2->location->name }},
-                                                                                            @endif
-                                                                                        @endforeach
-                                                                                    @endif
-                                                                                </p>
-                                                                                <div style="margin-top:-10px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Brand</b></span>
-                                                                                    <div>
-                                                                                        &emsp;&nbsp;<img
-                                                                                            src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
-                                                                                            style="width: 50px;margin-button:auto;"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                </div>
-
-                                                                            </div>
-                                                                            <div class="col-4 text-right">
-                                                                                @php
-                                                                                    $stockIn = 0;
-                                                                                    $stockOut = 0;
-                                                                                @endphp
-                                                                                @if ($value->stock)
-                                                                                    @foreach ($value->stock as $stock)
-                                                                                        @php
-                                                                                            $stockIn += $stock->qty_in;
-                                                                                            $stockOut += $stock->qty_out;
-                                                                                        @endphp
+                                                                        });
+                                                                    </script>
+                                                                    <div class="row" style="">
+                                                                        <div class="col-8 text-left"
+                                                                            style="margin-top: -87px;">
+                                                                            <span style="font-size: 12px;"><i class="w-icon-map-marker"></i>
+                                                                                <b>Location</b></span>
+                                                                            <p
+                                                                                style="font-size: 12px;margin-top:-5px;margin-bottom:5px;">
+                                                                                &emsp;
+                                                                                @if ($value->shipping_details)
+                                                                                    @foreach ($value->shipping_details as $key2 => $value2)
+                                                                                        @if ($key2 == $value->shipping_details->count() - 1)
+                                                                                            {{ $value2->location->name }}
+                                                                                        @else
+                                                                                            {{ $value2->location->name }},
+                                                                                        @endif
                                                                                     @endforeach
                                                                                 @endif
-                                                                                @if(($stockIn-$stockOut)<=0)
-                                                                                    <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
-                                                                                @else
-                                                                                    <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
-                                                                                @endif
+                                                                            </p>
+                                                                            
 
-                                                                                @if ($value->biller->image!=null)
-                                                                                &emsp;&nbsp;<a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
-                                                                                @else
-                                                                                <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
-                                                                                @endif
+                                                                            <div style="margin-top: -10px;">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Condition</b></span>
+                                                                                <div class="mt-2">
+                                                                                    @if ($value->conditions)
+                                                                                        @foreach ($value->conditions as $key1 => $value1)
+                                                                                            @if ($key1 == 0)
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        class="active"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            id="conditionChoice1"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif ($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        class="active"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            checked
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @else
+                                                                                                @if ($value1->condition->name == 'NEW')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColor{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
+                                                                                                    </label>
+                                                                                                    @elseif($value1->condition->name == 'REFURBISHED')
+                                                                                                    <label
+                                                                                                        for=""
+                                                                                                        id="changeBgColorr{{ $key . '_' . $key1 }}"
+                                                                                                        onclick="ChangeCondition({{ $key }},{{ $key1 }})"
+                                                                                                        style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
+                                                                                                        <input
+                                                                                                            type="hidden"
+                                                                                                            name="conditionChoice{{ $key }}"
+                                                                                                            id="conditionChoice{{ $key }}{{ $key1 }}"
+                                                                                                            style="position: relative;top:2px;"
+                                                                                                            value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
+                                                                                                    </label>
+                                                                                                @endif
+                                                                                            @endif
+                                                                                        @endforeach  
+                                                                                    @endif
+                                                                                    
+                                                                                </div>
+                                                                            </div>
+
+                                                                        </div>
+                                                                        <div class="col-4 text-right " style="margin-top:5px;">
+                                                                            @php
+                                                                                $stockIn = 0;
+                                                                                $stockOut = 0;
+                                                                            @endphp
+                                                                            @if ($value->stock)
+                                                                                @foreach ($value->stock as $stock)
+                                                                                    @php
+                                                                                        $stockIn += $stock->qty_in;
+                                                                                        $stockOut += $stock->qty_out;
+                                                                                    @endphp
+                                                                                @endforeach
+                                                                            @endif
+                                                                            @if(($stockIn-$stockOut)<=0)
+                                                                                <p style="color: red;font-style: italic;margin-top:-20px;">OUT OF STOCK</p>
+                                                                            @else
+                                                                                <p style="color: green;font-style: italic;margin-top:-20px;">IN STOCK</p>
+                                                                            @endif
+
+                                                                            @if ($value->biller->image!=null)
+                                                                            <!-- &emsp;&nbsp; -->
+                                                                            <a href="{{ URL::to("/vendor-products/".$value->biller->id) }}" target="_blank"><img src="{{asset('root/upload/users/'. $value->biller->image) }}" style="width: 50px; margin-left:auto;" alt=""></a>
+                                                                            @else
+                                                                            <img src="{{ URL::asset('root/upload/logo/im.png') }}"  alt="">
+                                                                            @endif
+                                                                        </div>
+                                                                        
+                                    
+                                                                    </div>
+                                                                    <div class="row" style="margin-top:24px;">
+                                                                        <div class="col-7 text-left">
+                                                                        <div style="margin-top:-51px; ">
+                                                                                <span style="font-size: 12px;"><i class="w-icon-sale"></i>
+                                                                                    <b>Brand</b></span>
+                                                                                <div>
+                                                                                    <img
+                                                                                        src="{{ URL::asset('root/upload/brands/small/' . $value->brand->logo) }}"
+                                                                                        style="width: 100px;margin-button:auto;"
+                                                                                        alt="brand logo">
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                        <div class="row">
-                                                                            <div class="col-7 text-left">
-                                                                                <div style="margin-top: -30px;">
-                                                                                    <span><i class="w-icon-sale"></i>
-                                                                                        <b>Condition</b></span>
-                                                                                    <div class="mt-2">
-                                                                                        @if ($value->conditions)
-                                                                                            @foreach ($value->conditions as $key1 => $value1)
-                                                                                                @if ($key1 == 0)
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor234{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition4({{ $key }},{{ $key1 }})"
-                                                                                                            class="active"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice234{{ $key }}"
-                                                                                                                id="conditionChoice234{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr234{{ $key . '_' . $key1 }}"
-                                                                                                            class="active"
-                                                                                                            onclick="ChangeCondition4({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #1C77C3;color:white;padding:5px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice234{{ $key }}"
-                                                                                                                id="conditionChoice234{{ $key }}{{ $key1 }}"
-                                                                                                                checked
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @else
-                                                                                                    @if ($value1->condition->name == 'NEW')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColor234{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition4({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice234{{ $key }}"
-                                                                                                                id="conditionChoice234{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->new_price . '_' . $value->new_sale_price }}">
-                                                                                                        </label>
-                                                                                                        @elseif($value1->condition->name == 'REFURBISHED')
-                                                                                                        <label
-                                                                                                            for=""
-                                                                                                            id="changeBgColorr234{{ $key . '_' . $key1 }}"
-                                                                                                            onclick="ChangeCondition4({{ $key }},{{ $key1 }})"
-                                                                                                            style="background-color: #CCCCCC;color:black;padding:5px;margin-left:3px;">{{ $value1->condition->name }}
-                                                                                                            <input
-                                                                                                                type="hidden"
-                                                                                                                name="conditionChoice234{{ $key }}"
-                                                                                                                id="conditionChoice234{{ $key }}{{ $key1 }}"
-                                                                                                                style="position: relative;top:2px;"
-                                                                                                                value="{{ $value1->condition->name . '_' . $value->refurnished_price . '_' . $value->refurnished_sale_price }}">
-                                                                                                        </label>
-                                                                                                    @endif
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                        @endif
+                                                                        
 
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-
+                                                                        <div class="col-5 text-right">
+                                                                            <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
+                                                                                title="Add To Wishlist"
+                                                                                style="font-size: 10px;"><i
+                                                                                    class="w-icon-heart-full"></i>
+                                                                                Add To Wishlist
+                                                                            </a>
+                                                                        </div>
+                                                                        <div class="col-7 text-left">
+                                                                            <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
+                                                                                class="btn btn-sm btn-primary btn-block"
+                                                                                style="margin-top: 10px;">
+                                                                                <span style="margin-left: -2px;">
+                                                                                <i
+                                                                                    class="w-icon-cart"></i>
+                                                                                View
+                                                                                Details </span></a>
+                                                                        </div>
+                                                                        <div class="col-5  text-right">
+                                                                            @php 
+                                                                            $stars=0;
+                                                                            $count=0;
+                                                                            @endphp
+                                                                            @foreach($relatedreviews as $reviews)
+                                                                            @if ($value->id == $reviews->product_id )
+                                                                            @php
+                                                                                $count= $count+1;
+                                                                                $stars+= $reviews->rating;
+                                                                            @endphp
+                                                                            @endif
+                                                                            @endforeach
+                                                                            
+                                                                            @if($count!=0 )
                                                                             <div class="col-5 text-right">
-                                                                                <a href="{{ URL::to('/add-to-wishlist/' . $value->id) }}"
-                                                                                    title="Add To Wishlist"
-                                                                                    style="font-size: 10px;"><i
-                                                                                        class="w-icon-heart-full"></i>
-                                                                                    Add To Wishlist
-                                                                                </a>
+                                                                                <br>
+                                                                                {{-- <p>{{ $count }}</p> --}}
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $stars }}</p> --}}
+                                                                                        <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
+                                                                                    </div>
+                                                                                    {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                </div>
                                                                             </div>
-                                                                            <div class="col-7 text-left">
-                                                                                <a href="{{ URL::to('/single-product/' . $value->id . '/' . $value->slug) }}"
-                                                                                    class="btn btn-sm btn-primary btn-block"
-                                                                                    style="margin-top: 10px;"><i
-                                                                                        class="w-icon-cart"></i>
-                                                                                    View
-                                                                                    Details</a>
-                                                                            </div>
+                                                                            @else  
                                                                             <div class="col-5 text-right">
-                                                                                @php
-                                                                                $stars=0;
-                                                                                $count=0;
-                                                                                @endphp
-                                                                                @foreach($relatedreviews as $reviews)
-                                                                                @if ($value->id == $reviews->product_id )
-                                                                                @php
-                                                                                    $count= $count+1;
-                                                                                    $stars+= $reviews->rating;
-                                                                                @endphp
-                                                                                @endif
-                                                                                @endforeach
-
-                                                                                @if($count!=0 )
-                                                                                <div class="col-5 text-right">
-                                                                                    <br>
-                                                                                    {{-- <p>{{ $count }}</p> --}}
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $stars }}</p> --}}
-                                                                                            <span class="ratings" style="width:{{($stars/$count)*20 }}%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                        {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
+                                                                                
+                                                                                <br>
+                                                                                <div class="ratings-container"style="margin-left:52px;">
+                                                                                    <div class="ratings-full">
+                                                                                        {{-- <p>{{ $count }}</p> --}}
+                                                                                        
+                                                                                        <span class="ratings" style="width:0%;"></span>
+                                                                                        <span class="tooltiptext tooltip-top"></span>
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
-                                                                                <div class="col-5 text-right">
-
-                                                                                    <br>
-                                                                                    <div class="ratings-container"style="margin-left:80px;">
-                                                                                        <div class="ratings-full">
-                                                                                            {{-- <p>{{ $count }}</p> --}}
-
-                                                                                            <span class="ratings" style="width:0%;"></span>
-                                                                                            <span class="tooltiptext tooltip-top"></span>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                                @endif
-                                                                                {{-- <div class="star-rating "
-                                                                                    style="font-size: 13px;float: right;margin-top:10px;">
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square-full"
-                                                                                        style="color: #1C77C3"></i>
-                                                                                    <i class="w-icon-star-square"
-                                                                                        style="color: #CCCCCC"></i>
-                                                                                    <br />
-                                                                                    <span
-                                                                                        style="font-size: 12px;position: relative;top:-5px;">12
-                                                                                        Review(s)</span>
-                                                                                </div> --}}
                                                                             </div>
+                                                                            @endif
+                                                                            {{-- <div class="star-rating "
+                                                                                style="font-size: 13px;float: right;margin-top:10px;">
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square-full"
+                                                                                    style="color: #1C77C3"></i>
+                                                                                <i class="w-icon-star-square"
+                                                                                    style="color: #CCCCCC"></i>
+                                                                                <br />
+                                                                                <span
+                                                                                    style="font-size: 12px;position: relative;top:-5px;">12
+                                                                                    Review(s)</span>
+                                                                            </div> --}}
                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -3614,7 +3760,7 @@
                                                                                     Details</a>
                                                                             </div>
                                                                             <div class="col-5 text-right">
-                                                                                @php
+                                                                                @php 
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -3626,7 +3772,7 @@
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-
+                                                                                
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -3640,14 +3786,14 @@
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else
+                                                                                @else  
                                                                                 <div class="col-5 text-right">
-
+                                                                                    
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-
+                                                                                            
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -3738,7 +3884,7 @@
                 <!-- End of Brands Wrapper -->
 
                 <h2 class="title title-underline ml-4 mb-4 ls-normal appear-animate">Brand's</h2>
-                <div class="row mb-6">
+                <div class="row mb-6 brand-icon">
                     <div class="shop-default-brands mb-5">
                         <div class="brands-swiper swiper-container swiper-theme "
                             data-swiper-options="{
@@ -3857,7 +4003,7 @@
             var condition = $('#conditionChoice23' + key + key1).val();
             var conditionName = condition.split('_')[0];
 
-            var price = condition.split('_')[1];
+            var price = condition.splelseit('_')[1];
             var sale_price = condition.split('_')[2];
 
             $('#finalValue2223' + key).html('$' + sale_price);

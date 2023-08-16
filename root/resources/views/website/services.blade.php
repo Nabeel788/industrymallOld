@@ -51,7 +51,7 @@
         #main-tabs{
             padding: 20px;
             box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-            background-color: rgb(206, 199, 199);
+            background-color: while;
             border: 1px solid: blue;
             <?php $height = 0; ?>
             @foreach($services as $key=>$value)
@@ -63,7 +63,7 @@
             height: {{ $height }}px;
             @endforeach
         }
-         #main-tabs .nav-item{
+        #main-tabs .nav-item{
             border: 1px solid: blue;
             color: black;
         }
@@ -75,6 +75,14 @@
         }
         #main-tabs .nav-item .nav-link{
             padding-left: 10px;
+        }
+        
+        #main-tabs .nav-item .nav-link:hover{
+            color:white;
+        }
+        #main-tabs .nav-item .nav-link.active{
+        background-color: gray;
+        color:white;
         }
         .tab-pane{
             margin-top: 0px;
@@ -122,7 +130,7 @@
                             @foreach($services as $key=>$value)
                                 @if($key==0)
                                 <li class="nav-item">
-                                    <a href="#service-{{ $key }}" class="nav-link active">
+                                    <a href="#service-{{ $key }}" class="nav-link active" >
                                         <i class="w-icon-angle-right style="font-size: 13px;"></i>
                                         <i class="w-icon-angle-right"  style="margin-left: -13px;font-size: 13px;"></i>
                                         <span style="position: relative;">{{ $value->title }}</span>
