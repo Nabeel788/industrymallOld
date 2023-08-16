@@ -46,11 +46,11 @@ class SubCategoryController extends Controller
             $file = $request->file('img');
             $fileName = uniqid() . $file->getClientOriginalName();
             $imagePath =  'root/upload/subcategory/' .$fileName;
-      
+
             $img = Image::make($file);
             $img->resize(100, 100);
             $img->save($imagePath);
-      
+
             $s->img = 'root/upload/subcategory/'.$fileName;
             $s->save();
         }
@@ -58,11 +58,11 @@ class SubCategoryController extends Controller
             $file = $request->file('imageforapp');
             $fileName = uniqid() . $file->getClientOriginalName();
             $imagePath =  'root/upload/subcategory/' .$fileName;
-      
+
             $img = Image::make($file);
             $img->resize(100, 100);
             $img->save($imagePath);
-      
+
             $s->imageforapp = 'root/upload/subcategory/'.$fileName;
             $s->save();
         }
@@ -98,11 +98,11 @@ class SubCategoryController extends Controller
             $file = $request->file('img');
             $fileName = uniqid() . $file->getClientOriginalName();
             $imagePath =  'root/upload/subcategory/' .$fileName;
-      
+
             $img = Image::make($file);
             $img->resize(100, 100);
             $img->save($imagePath);
-      
+
             $update->img = 'root/upload/subcategory/'.$fileName;
             $update->save();
         }
@@ -111,15 +111,15 @@ class SubCategoryController extends Controller
             $file = $request->file('imageforapp');
             $fileName = uniqid() . $file->getClientOriginalName();
             $imagePath =  'root/upload/subcategory/' . $fileName;
-      
+
             $img = Image::make($file);
             $img->resize(100, 100);
             $img->save($imagePath);
-      
+
             $update->imageforapp ='root/upload/subcategory/'.$fileName;
             $update->save();
         }
-        
+
         return redirect('sub-category')->with(Toastr::success('Sub Category Updated Successfully!'));
     }
 

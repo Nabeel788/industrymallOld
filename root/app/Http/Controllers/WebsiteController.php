@@ -88,7 +88,7 @@ class WebsiteController extends Controller
 		// 	},
 		// ])->OrderBy('id', 'asc')->get();
 		// return $menus[0]->categories[0]->img;
-		
+
 		// $products = Product::
 		// 	with('product_image')
 		// 		// ->where('type', 'Parent')
@@ -124,16 +124,16 @@ class WebsiteController extends Controller
 			}])->where('type', 'Parent')
 			->orderBy('id','desc')
 
-			// ->take(5)	
+			// ->take(5)
 			->get();
-		
-	
+
+
         // // return $count;
 		// 	$count = count($productss);
         // for ($i = $count; $i > ($count-5); $i--) {
 
 		// 	$products = $productss->reverse()->slice(1)->reverse();
-		
+
 
 		// }
 		// // return	1;
@@ -231,7 +231,7 @@ class WebsiteController extends Controller
 			$productCountries = Locations::with(['product_shippment' => function ($query) use ($id) {
 				$query->where('pro_id', $id);
 			}])->get();
-			
+
 			$relatedProducts = Product::with('product_image')
 				->with('categories:id,name')
 				->with('locations')
@@ -268,7 +268,7 @@ class WebsiteController extends Controller
 									->where('rating',4)
 									->groupBy('rating')
 									->first();
-								
+
 			$ReviewsNo3 = Reviews::select(DB::raw('COUNT(rating) as total_user_rating'))
 									->where('product_id',$id)->where('status',1)
 									->where('rating',3)
@@ -288,15 +288,15 @@ class WebsiteController extends Controller
 			$relatedreviews = Reviews::where('id', '!=', $id)->where('status',1)->orderby('product_id')->get();
 			// ->where('status',1)->average('rating');
 					// return $product;
-			return view('website.single-product', 
+			return view('website.single-product',
 				compact(
-					'product', 
-					'childProducts', 
-					'settings', 
-					'productCountries', 
-					'relatedProducts', 
-					'relatedreviews', 
-					'totalStock', 
+					'product',
+					'childProducts',
+					'settings',
+					'productCountries',
+					'relatedProducts',
+					'relatedreviews',
+					'totalStock',
 					'productInfo',
 					'overAllProductRating',
 					'reviewsAverage',
@@ -1047,7 +1047,7 @@ class WebsiteController extends Controller
 		$category2 = BlogsCategories::select('id','title')->whereId($homeSettings->blog_category2)->first();
 		$category3 = BlogsCategories::select('id','title')->whereId($homeSettings->blog_category3)->first();
 		$category4 = BlogsCategories::select('id','title')->whereId($homeSettings->blog_category4)->first();
-		// $showAll1 = 
+		// $showAll1 =
 
 		$SubcategoriesList1 = BlogSubCategory::where('blog_category_id', $homeSettings->blog_category1)->orderBy('id')->take(5)->get();
 		$SubcategoriesList2 = BlogSubCategory::where('blog_category_id', $homeSettings->blog_category2)->orderBy('id')->take(5)->get();
@@ -1056,7 +1056,7 @@ class WebsiteController extends Controller
 
 		$blogs = Blogs::with('blog_category:id,title')->with('created_by_user:id,first_name,last_name')->orderBy('id')->get();
 		 $bannerimages = Blogs::with('blog_category:id,title')->with('created_by_user:id,first_name,last_name')->take(3)->orderBy('id','desc')->get();
-		return view('website.blogs', 
+		return view('website.blogs',
 		compact(
 			'category1',
 			'category2',
@@ -1082,12 +1082,12 @@ class WebsiteController extends Controller
 			->whereId($id)
 			->whereSlug($slug)
 			->firstOrFail();
-			
+
 		 $sidebarcategories = BlogSubCategory::
 		 where('id',$Singleblog->blog_sub_category_id)
 		 ->distinct()
 		 ->get();
-			
+
 		if ($Singleblog) {
 			 $relatedblog=Blogs::where('id','!=',$id)->where('blog_category_id',$Singleblog->blog_category_id)->take(7)->get();
 			return view('website.single-blog', compact('blogs_categories', 'Singleblog','relatedblog','sidebarcategories'));
@@ -1213,13 +1213,13 @@ class WebsiteController extends Controller
 
 	public function SearchTrackOrder(Request $request)
 	{
-		
+
 		if ($request->isMethod('post')) {
 			$this->validate($request, [
 				'order_id' => 'required',
 				'email' => 'required|email'
 			]);
-			
+
 			// $order = Order::whereId($request->order_id)->whereEmail($request->email)->first();
 			$order = Order::where('id',$request->order_id)->where('email',$request->email)->first();
 			if ($order) {
@@ -1329,7 +1329,7 @@ class WebsiteController extends Controller
 			$locations = Locations::all();
 			$vendorAlbums = VendorAlbum::where('vendor_id',$vendorId)->get();
 			$relatedreviews = Reviews::where('status',1)->get();
-			$relatedinout = Stock::orderby('pro_id')->get();	
+			$relatedinout = Stock::orderby('pro_id')->get();
 			// return $vendor;
 			return view('website.vendor_profile', compact('products', 'relatedProducts','settings', 'brands', 'vendor','productInfo','locations','vendorAlbums','relatedreviews','relatedinout'));
 		} else {
@@ -1369,11 +1369,11 @@ class WebsiteController extends Controller
 			$r->status = 0;
 			$r->save();
 			return redirect()->back()->with(Toastr::info('Review Added Successfully !!!'));
-		}else{	
+		}else{
 			abort(404);
 		}
 	}
-	
+
 
 	public function VendorContactSendMessage(Request $request)
 	{

@@ -330,7 +330,7 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
 
 
-    // route checking 
+    // route checking
     Route::get('menus/{id}/edit', 'MenuController@edit')->name('menu.edit');
     Route::get('menus/{id}/destroy', 'MenuController@destroy')->name('menu.destroy');
 
@@ -338,3 +338,10 @@ Route::group(['middleware' => 'prevent-back-history'], function () {
 
 
 Route::get('/test',[TestController::class,'GetUSersRelations']);
+
+Route::get('/slidebar',function(){
+return view('pricebar.slidebar');
+
+});
+
+

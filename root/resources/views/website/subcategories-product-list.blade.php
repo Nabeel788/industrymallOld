@@ -68,7 +68,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
         .product-wrapper.row [class*=col-] {
             margin-bottom: 0% !important;
         }
-        
+
         #categories-section ul{
             height: 400px;
             overflow-y: scroll;
@@ -81,17 +81,17 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
         }
         /* Track */
         #categories-section ul::-webkit-scrollbar-track {
-            background: #f1f1f1; 
+            background: #f1f1f1;
         }
-        
+
         /* Handle */
         #categories-section ul::-webkit-scrollbar-thumb {
-            background: #888; 
+            background: #888;
         }
-        
+
         /* Handle on hover */
         #categories-section ul::-webkit-scrollbar-thumb:hover {
-            background: #555; 
+            background: #555;
         }
 
         .priceSlider{
@@ -245,7 +245,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
             width: 16px;
             border-radius: 50%;
             background: #21c1ff;
-            
+
             }
 
 
@@ -297,7 +297,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
             }
 
    </style>
-    
+
 </head>
 
 <body>
@@ -346,7 +346,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                     @else
                                                     <a href="{{ URL::to('/shop/cat/'.$value->id) }}"><b>{{ $value->name }}</b></a>
                                                     @endif
-                                                    
+
                                                     @foreach ($value->subcategories as $value1)
                                                         @if (Request::path()=='shop/subcat/'.$value1->id.'/'.$value1->slug)
                                                         <li style="margin-top: -30px;margin-left:20px;">&emsp;<a href="{{ URL::to('/shop/subcat/'.$value1->id.'/'.$value1->slug) }}" style="color: #F95506;"><i class="w-icon-check-solid"></i> {{ $value1->name }}</a></li>
@@ -433,10 +433,10 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
 
                                     <!-- Start of Collapsible Widget -->
                                     <div class="widget widget-collapsible">
-                                      
+
                                         <h3 class="widget-title"><span>Price</span></h3>
                                         <div class="widget-body" style="margin-bottom: 0px!important;padding:0px!important;">
-                                            
+
                                             <form class="price-range" id="price-range-form"
                                                 action="{{ URL::to('/shop/subcat/filterbyprice-min-max') }}">
                                                 @csrf
@@ -450,8 +450,8 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                     class="btn btn-primary btn-rounded"
                                                     onclick="document.getElementById('price-range-form').submit();">Go</a>
                                             </form>
-                                           
-                                            <div class="priceSlider">
+
+                                            <div class="price-slider">
                                                 {{-- <h1>Range Slider</h1>
                                                 <p>Move Slider to choose the price range:</p> --}}
                                                 <div class="min-max" style="display: none;">
@@ -472,7 +472,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                     <input type="range" name="" id="max"  min="{{$minPrice }}"  max="{{ $maxPrice }}" class="range" value="{{ $maxPrice }}">
                                                 </div>
                                                 <div style="clear: both;"></div>
-                                                                       
+
                                                 <script>
                                                     var minSlider = document.getElementById('min');
                                                     var maxSlider = document.getElementById('max');
@@ -494,7 +494,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                     }
 
                                                 </script>
-                                          
+
                                             </div>
                                         </div>
                                     </div>
@@ -540,7 +540,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                             @endforeach
                                         </ul>
                                     </div>
-                                    
+
                                     <!-- End of Collapsible Widget -->
 
                                     <!-- Start of Collapsible Widget -->
@@ -619,7 +619,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                     </div>
                             </div>
                             @endif
-                            
+
                             <!-- End of Shop Banner -->
 
                             <div class="product-wrapper row cols-md-3 cols-sm-1 cols-1">
@@ -676,7 +676,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                             &nbsp;{{ $settings->currency . '' . $value->new_sale_price }}&nbsp;
                                                         </p>
                                                     </div>
-                                                    
+
                                                     <div style="margin-bottom:20px;width:150px;position: relative;left:45px;margin-top:-20px;"
                                                         class="ml-auto">
                                                         <input type="hidden" id="amount1{{ $key }}"
@@ -787,14 +787,14 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
 
                                                         </div>
                                                         <div class="col-4 text-right">
-                                                            @php 
-                                                                $stockIn = 0; 
-                                                                $stockOut = 0; 
+                                                            @php
+                                                                $stockIn = 0;
+                                                                $stockOut = 0;
                                                             @endphp
                                                             @foreach ($value->stock as $stock)
-                                                                @php 
-                                                                    $stockIn += $stock->qty_in; 
-                                                                    $stockOut += $stock->qty_out; 
+                                                                @php
+                                                                    $stockIn += $stock->qty_in;
+                                                                    $stockOut += $stock->qty_out;
                                                                 @endphp
                                                             @endforeach
                                                             @if(($stockIn-$stockOut)<=0)
@@ -802,7 +802,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                             @else
                                                             <p style="color: green;font-style: italic;">IN STOCK</p>
                                                             @endif
-                                                            
+
                                                         </div>
                                                     </div>
                                                     <div class="row">
@@ -886,7 +886,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                                 Details</a>
                                                         </div>
                                                         <div class="col-5 text-right">
-                                                            @php 
+                                                            @php
                                                                                 $stars=0;
                                                                                 $count=0;
                                                                                 @endphp
@@ -898,7 +898,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                                                 @endphp
                                                                                 @endif
                                                                                 @endforeach
-                                                                                
+
                                                                                 @if($count!=0 )
                                                                                 <div class="col-5 text-right">
                                                                                     <br>
@@ -912,14 +912,14 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
                                                                                         {{-- <a href="#" class="rating-reviews">({{ $overAllProductRating }} Reviews)</a> --}}
                                                                                     </div>
                                                                                 </div>
-                                                                                @else  
+                                                                                @else
                                                                                 <div class="col-5 text-right">
-                                                                                    
+
                                                                                     <br>
                                                                                     <div class="ratings-container"style="margin-left:80px;">
                                                                                         <div class="ratings-full">
                                                                                             {{-- <p>{{ $count }}</p> --}}
-                                                                                            
+
                                                                                             <span class="ratings" style="width:0%;"></span>
                                                                                             <span class="tooltiptext tooltip-top"></span>
                                                                                         </div>
@@ -981,7 +981,7 @@ $locations = Locations::select('id', 'name')->orderBy('id')->get();
 
 
 
-                                                    
+
 
                                                 </div>
                                             </div>
